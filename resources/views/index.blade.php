@@ -96,7 +96,7 @@
         </a>
 
         <button class="flex-c-m pos2 size23 colorwhite eff3 trans-0-4 btn-romove-top-noti">
-            <i class="fa fa-remove fs-13" aria-hidden="true"></i>
+            <i class="fas fa-remove fs-13" aria-hidden="true"></i>
         </button>
     </div>
 
@@ -106,11 +106,11 @@
         <div class="container-menu-header-v2 p-t-26">
             <div class="topbar2">
                 <div class="topbar-social">
-                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                    <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-                    <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                    <a href="#" class="topbar-social-item fas fa-facebook"></a>
+                    <a href="#" class="topbar-social-item fas fa-instagram"></a>
+                    <a href="#" class="topbar-social-item fas fa-pinterest-p"></a>
+                    <a href="#" class="topbar-social-item fas fa-snapchat-ghost"></a>
+                    <a href="#" class="topbar-social-item fas fa-youtube-play"></a>
                 </div>
 
                 <!-- Logo2 -->
@@ -399,11 +399,11 @@
 
                     <li class="item-topbar-mobile p-l-10">
                         <div class="topbar-social-mobile">
-                            <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                            <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                            <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-                            <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                            <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                            <a href="#" class="topbar-social-item fas fa-facebook"></a>
+                            <a href="#" class="topbar-social-item fas fa-instagram"></a>
+                            <a href="#" class="topbar-social-item fas fa-pinterest-p"></a>
+                            <a href="#" class="topbar-social-item fas fa-snapchat-ghost"></a>
+                            <a href="#" class="topbar-social-item fas fa-youtube-play"></a>
                         </div>
                     </li>
 
@@ -414,7 +414,7 @@
                             <li><a href="home-02.html">Homepage V2</a></li>
                             <li><a href="home-03.html">Homepage V3</a></li>
                         </ul>
-                        <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+                        <i class="arrow-main-menu fas fa-angle-right" aria-hidden="true"></i>
                     </li>
 
                     <li class="item-menu-mobile">
@@ -1544,7 +1544,7 @@
                 </h3>
 
                 <span class="btn-play s-text4 hov5 cs-pointer p-t-25" data-toggle="modal" data-target="#modal-video-01">
-					<i class="fa fa-play" aria-hidden="true"></i>
+					<i class="fas fa-play" aria-hidden="true"></i>
 					Play Video
 				</span>
             </div>
