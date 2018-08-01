@@ -15,6 +15,8 @@ class CreateProductOptionsTable extends Migration
     {
         Schema::create('product_options', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('group_id');
+            $table->string('option_name');
             $table->timestamps();
         });
     }
