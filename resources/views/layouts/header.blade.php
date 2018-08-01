@@ -59,3 +59,5 @@
             </ul>
         </nav>
     </div>
+
+    @include('layouts.nav')
