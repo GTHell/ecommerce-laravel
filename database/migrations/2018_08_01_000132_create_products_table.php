@@ -22,8 +22,6 @@ class CreateProductsTable extends Migration
             $table->integer('category_id');
             $table->string('gender_type');
             $table->string('unit_price');
-            $table->string('description');
-            $table->string('description');
             $table->timestamps();
         });
     }

@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     //
-    protected $fillable = [ 'group_name' ];
+    protected $fillable = [
+        'name', 'sku', 'description', 'supplier_id', 'category_id', 'gender_type', 'unit_price'
+    ];
 
-    public function options () {
-        return $this->hasMany('App\Models\ProductOptions', 'group_id');
+    public function category () {
+        return $this->belongsTo('App\Models\Category', 'category_id');
     }
 }
