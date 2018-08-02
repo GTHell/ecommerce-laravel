@@ -14,4 +14,8 @@ class AttributeValue extends Model
     public function categories () {
         return $this->belongsToMany('App\Category', 'categories_attributes', 'category_id');
     }
+
+    public function attributeType () {
+        return $this->belongsTo('App\AttributeType', 'attribute_type_id');
+    }
 }
