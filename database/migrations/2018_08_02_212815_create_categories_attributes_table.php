@@ -15,6 +15,8 @@ class CreateCategoriesAttributesTable extends Migration
     {
         Schema::create('categories_attributes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('category_id');
+            $table->integer('attribute_value_id');
             $table->timestamps();
         });
     }
