@@ -48,4 +48,14 @@ mix.autoload({jquery: ['$', 'window.jQuery',"jQuery","window.$","jquery","window
     'resources/assets/css/util.css',
     'resources/assets/css/main.css'
   ], 'public/css/main.css')
+  // Dashboard
+  .js([
+    'resources/assets/vendor/jquery/jquery-3.2.1.min.js',
+    'resources/assets/vendor/bootstrap-4.1.3/js/popper.js',
+    'resources/assets/vendor/bootstrap-4.1.3/js/bootstrap.min.js',
+  ], 'public/js/dashboard/main.js')
+  .styles([
+    'resources/assets/vendor/bootstrap-4.1.3/css/bootstrap.min.css',
+    'resources/assets/js/dashboard/style.css'
+  ], 'public/css/dashboard/main.css')
   .sass('resources/assets/sass/app.scss', 'public/css');

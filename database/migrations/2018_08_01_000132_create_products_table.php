@@ -18,9 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('sku');
             $table->text('description');
-            $table->integer('supplier_id');
+            $table->integer('supplier_id')->nullable();
             $table->integer('category_id');
-            $table->string('gender_type');
             $table->string('unit_price');
             $table->timestamps();
         });

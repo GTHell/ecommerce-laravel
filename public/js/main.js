@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 44);
+/******/ 	return __webpack_require__(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10435,8 +10435,7 @@ return jQuery;
 
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, exports) {
 
 var g;
@@ -10463,6 +10462,7 @@ module.exports = g;
 
 
 /***/ }),
+/* 2 */,
 /* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12989,7 +12989,7 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 4 */
@@ -13277,7 +13277,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */,
@@ -13471,63 +13471,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(5)))
 
 /***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(45);
-__webpack_require__(47);
-__webpack_require__(48);
-__webpack_require__(49);
-__webpack_require__(50);
-__webpack_require__(51);
-__webpack_require__(52);
-__webpack_require__(53);
-__webpack_require__(54);
-__webpack_require__(55);
-__webpack_require__(56);
-module.exports = __webpack_require__(57);
-
-
-/***/ }),
-/* 45 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -15803,7 +15750,7 @@ module.exports = __webpack_require__(57);
       return 1 === arguments.length ? this.off(a, "**") : this.off(b, a || "**", c);
     } }), r.holdReady = function (a) {
     a ? r.readyWait++ : r.ready(!0);
-  }, r.isArray = Array.isArray, r.parseJSON = JSON.parse, r.nodeName = B, "function" == "function" && __webpack_require__(46) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+  }, r.isArray = Array.isArray, r.parseJSON = JSON.parse, r.nodeName = B, "function" == "function" && __webpack_require__(10) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
     return r;
   }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));var Vb = a.jQuery,
@@ -15814,7 +15761,7 @@ module.exports = __webpack_require__(57);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ }),
-/* 46 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -15823,140 +15770,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/*!
- * animsition v4.0.2
- * A simple and easy jQuery plugin for CSS animated page transitions.
- * http://blivesta.github.io/animsition
- * License : MIT
- * Author : blivesta (http://blivesta.com/)
- */
-!function (t) {
-  "use strict";
-   true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (t),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) ? module.exports = t(require("jquery")) : t(jQuery);
-}(function (t) {
-  "use strict";
-  var n = "animsition",
-      i = { init: function init(a) {
-      a = t.extend({ inClass: "fade-in", outClass: "fade-out", inDuration: 1500, outDuration: 800, linkElement: ".animsition-link", loading: !0, loadingParentElement: "body", loadingClass: "animsition-loading", loadingInner: "", timeout: !1, timeoutCountdown: 5e3, onLoadEvent: !0, browser: ["animation-duration", "-webkit-animation-duration"], overlay: !1, overlayClass: "animsition-overlay-slide", overlayParentElement: "body", transition: function transition(t) {
-          window.location.href = t;
-        } }, a), i.settings = { timer: !1, data: { inClass: "animsition-in-class", inDuration: "animsition-in-duration", outClass: "animsition-out-class", outDuration: "animsition-out-duration", overlay: "animsition-overlay" }, events: { inStart: "animsition.inStart", inEnd: "animsition.inEnd", outStart: "animsition.outStart", outEnd: "animsition.outEnd" } };var o = i.supportCheck.call(this, a);if (!o && a.browser.length > 0 && (!o || !this.length)) return "console" in window || (window.console = {}, window.console.log = function (t) {
-        return t;
-      }), this.length || console.log("Animsition: Element does not exist on page."), o || console.log("Animsition: Does not support this browser."), i.destroy.call(this);var e = i.optionCheck.call(this, a);return e && t("." + a.overlayClass).length <= 0 && i.addOverlay.call(this, a), a.loading && t("." + a.loadingClass).length <= 0 && i.addLoading.call(this, a), this.each(function () {
-        var o = this,
-            e = t(this),
-            s = t(window),
-            r = t(document),
-            l = e.data(n);l || (a = t.extend({}, a), e.data(n, { options: a }), a.timeout && i.addTimer.call(o), a.onLoadEvent && s.on("load." + n, function () {
-          i.settings.timer && clearTimeout(i.settings.timer), i["in"].call(o);
-        }), s.on("pageshow." + n, function (t) {
-          t.originalEvent.persisted && i["in"].call(o);
-        }), s.on("unload." + n, function () {}), r.on("click." + n, a.linkElement, function (n) {
-          n.preventDefault();var a = t(this),
-              e = a.attr("href");2 === n.which || n.metaKey || n.shiftKey || -1 !== navigator.platform.toUpperCase().indexOf("WIN") && n.ctrlKey ? window.open(e, "_blank") : i.out.call(o, a, e);
-        }));
-      });
-    }, addOverlay: function addOverlay(n) {
-      t(n.overlayParentElement).prepend('<div class="' + n.overlayClass + '"></div>');
-    }, addLoading: function addLoading(n) {
-      t(n.loadingParentElement).append('<div class="' + n.loadingClass + '">' + n.loadingInner + "</div>");
-    }, removeLoading: function removeLoading() {
-      var i = t(this),
-          a = i.data(n).options,
-          o = t(a.loadingParentElement).children("." + a.loadingClass);o.fadeOut().remove();
-    }, addTimer: function addTimer() {
-      var a = this,
-          o = t(this),
-          e = o.data(n).options;i.settings.timer = setTimeout(function () {
-        i["in"].call(a), t(window).off("load." + n);
-      }, e.timeoutCountdown);
-    }, supportCheck: function supportCheck(n) {
-      var i = t(this),
-          a = n.browser,
-          o = a.length,
-          e = !1;0 === o && (e = !0);for (var s = 0; o > s; s++) {
-        if ("string" == typeof i.css(a[s])) {
-          e = !0;break;
-        }
-      }return e;
-    }, optionCheck: function optionCheck(n) {
-      var a,
-          o = t(this);return a = n.overlay || o.data(i.settings.data.overlay) ? !0 : !1;
-    }, animationCheck: function animationCheck(i, a, o) {
-      var e = t(this),
-          s = e.data(n).options,
-          r = typeof i === "undefined" ? "undefined" : _typeof(i),
-          l = !a && "number" === r,
-          d = a && "string" === r && i.length > 0;return l || d ? i = i : a && o ? i = s.inClass : !a && o ? i = s.inDuration : a && !o ? i = s.outClass : a || o || (i = s.outDuration), i;
-    }, "in": function _in() {
-      var a = this,
-          o = t(this),
-          e = o.data(n).options,
-          s = o.data(i.settings.data.inDuration),
-          r = o.data(i.settings.data.inClass),
-          l = i.animationCheck.call(a, s, !1, !0),
-          d = i.animationCheck.call(a, r, !0, !0),
-          u = i.optionCheck.call(a, e),
-          c = o.data(n).outClass;e.loading && i.removeLoading.call(a), c && o.removeClass(c), u ? i.inOverlay.call(a, d, l) : i.inDefault.call(a, d, l);
-    }, inDefault: function inDefault(n, a) {
-      var o = t(this);o.css({ "animation-duration": a + "ms" }).addClass(n).trigger(i.settings.events.inStart).animateCallback(function () {
-        o.removeClass(n).css({ opacity: 1 }).trigger(i.settings.events.inEnd);
-      });
-    }, inOverlay: function inOverlay(a, o) {
-      var e = t(this),
-          s = e.data(n).options;e.css({ opacity: 1 }).trigger(i.settings.events.inStart), t(s.overlayParentElement).children("." + s.overlayClass).css({ "animation-duration": o + "ms" }).addClass(a).animateCallback(function () {
-        e.trigger(i.settings.events.inEnd);
-      });
-    }, out: function out(a, o) {
-      var e = this,
-          s = t(this),
-          r = s.data(n).options,
-          l = a.data(i.settings.data.outClass),
-          d = s.data(i.settings.data.outClass),
-          u = a.data(i.settings.data.outDuration),
-          c = s.data(i.settings.data.outDuration),
-          m = l ? l : d,
-          g = u ? u : c,
-          f = i.animationCheck.call(e, m, !0, !1),
-          v = i.animationCheck.call(e, g, !1, !1),
-          h = i.optionCheck.call(e, r);s.data(n).outClass = f, h ? i.outOverlay.call(e, f, v, o) : i.outDefault.call(e, f, v, o);
-    }, outDefault: function outDefault(a, o, e) {
-      var s = t(this),
-          r = s.data(n).options;s.css({ "animation-duration": o + 1 + "ms" }).addClass(a).trigger(i.settings.events.outStart).animateCallback(function () {
-        s.trigger(i.settings.events.outEnd), r.transition(e);
-      });
-    }, outOverlay: function outOverlay(a, o, e) {
-      var s = this,
-          r = t(this),
-          l = r.data(n).options,
-          d = r.data(i.settings.data.inClass),
-          u = i.animationCheck.call(s, d, !0, !0);t(l.overlayParentElement).children("." + l.overlayClass).css({ "animation-duration": o + 1 + "ms" }).removeClass(u).addClass(a).trigger(i.settings.events.outStart).animateCallback(function () {
-        r.trigger(i.settings.events.outEnd), l.transition(e);
-      });
-    }, destroy: function destroy() {
-      return this.each(function () {
-        var i = t(this);t(window).off("." + n), i.css({ opacity: 1 }).removeData(n);
-      });
-    } };t.fn.animateCallback = function (n) {
-    var i = "animationend webkitAnimationEnd";return this.each(function () {
-      var a = t(this);a.on(i, function () {
-        return a.off(i), n.call(this);
-      });
-    });
-  }, t.fn.animsition = function (a) {
-    return i[a] ? i[a].apply(this, Array.prototype.slice.call(arguments, 1)) : "object" != (typeof a === "undefined" ? "undefined" : _typeof(a)) && a ? void t.error("Method " + a + " does not exist on jQuery." + n) : i.init.apply(this, arguments);
-  };
-});
-
-/***/ }),
-/* 48 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -18405,10 +18219,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   return Popper;
 });
 //# sourceMappingURL=popper.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 49 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -19413,6 +19227,192 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }(e), t.Util = Fn, t.Alert = Kn, t.Button = Mn, t.Carousel = Qn, t.Collapse = Bn, t.Dropdown = Vn, t.Modal = Yn, t.Popover = Jn, t.Scrollspy = Zn, t.Tab = Gn, t.Tooltip = zn, Object.defineProperty(t, "__esModule", { value: !0 });
 });
 //# sourceMappingURL=bootstrap.min.js.map
+
+/***/ }),
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(9);
+__webpack_require__(49);
+__webpack_require__(11);
+__webpack_require__(12);
+__webpack_require__(50);
+__webpack_require__(51);
+__webpack_require__(52);
+__webpack_require__(53);
+__webpack_require__(54);
+__webpack_require__(55);
+__webpack_require__(56);
+module.exports = __webpack_require__(57);
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*!
+ * animsition v4.0.2
+ * A simple and easy jQuery plugin for CSS animated page transitions.
+ * http://blivesta.github.io/animsition
+ * License : MIT
+ * Author : blivesta (http://blivesta.com/)
+ */
+!function (t) {
+  "use strict";
+   true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (t),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) ? module.exports = t(require("jquery")) : t(jQuery);
+}(function (t) {
+  "use strict";
+  var n = "animsition",
+      i = { init: function init(a) {
+      a = t.extend({ inClass: "fade-in", outClass: "fade-out", inDuration: 1500, outDuration: 800, linkElement: ".animsition-link", loading: !0, loadingParentElement: "body", loadingClass: "animsition-loading", loadingInner: "", timeout: !1, timeoutCountdown: 5e3, onLoadEvent: !0, browser: ["animation-duration", "-webkit-animation-duration"], overlay: !1, overlayClass: "animsition-overlay-slide", overlayParentElement: "body", transition: function transition(t) {
+          window.location.href = t;
+        } }, a), i.settings = { timer: !1, data: { inClass: "animsition-in-class", inDuration: "animsition-in-duration", outClass: "animsition-out-class", outDuration: "animsition-out-duration", overlay: "animsition-overlay" }, events: { inStart: "animsition.inStart", inEnd: "animsition.inEnd", outStart: "animsition.outStart", outEnd: "animsition.outEnd" } };var o = i.supportCheck.call(this, a);if (!o && a.browser.length > 0 && (!o || !this.length)) return "console" in window || (window.console = {}, window.console.log = function (t) {
+        return t;
+      }), this.length || console.log("Animsition: Element does not exist on page."), o || console.log("Animsition: Does not support this browser."), i.destroy.call(this);var e = i.optionCheck.call(this, a);return e && t("." + a.overlayClass).length <= 0 && i.addOverlay.call(this, a), a.loading && t("." + a.loadingClass).length <= 0 && i.addLoading.call(this, a), this.each(function () {
+        var o = this,
+            e = t(this),
+            s = t(window),
+            r = t(document),
+            l = e.data(n);l || (a = t.extend({}, a), e.data(n, { options: a }), a.timeout && i.addTimer.call(o), a.onLoadEvent && s.on("load." + n, function () {
+          i.settings.timer && clearTimeout(i.settings.timer), i["in"].call(o);
+        }), s.on("pageshow." + n, function (t) {
+          t.originalEvent.persisted && i["in"].call(o);
+        }), s.on("unload." + n, function () {}), r.on("click." + n, a.linkElement, function (n) {
+          n.preventDefault();var a = t(this),
+              e = a.attr("href");2 === n.which || n.metaKey || n.shiftKey || -1 !== navigator.platform.toUpperCase().indexOf("WIN") && n.ctrlKey ? window.open(e, "_blank") : i.out.call(o, a, e);
+        }));
+      });
+    }, addOverlay: function addOverlay(n) {
+      t(n.overlayParentElement).prepend('<div class="' + n.overlayClass + '"></div>');
+    }, addLoading: function addLoading(n) {
+      t(n.loadingParentElement).append('<div class="' + n.loadingClass + '">' + n.loadingInner + "</div>");
+    }, removeLoading: function removeLoading() {
+      var i = t(this),
+          a = i.data(n).options,
+          o = t(a.loadingParentElement).children("." + a.loadingClass);o.fadeOut().remove();
+    }, addTimer: function addTimer() {
+      var a = this,
+          o = t(this),
+          e = o.data(n).options;i.settings.timer = setTimeout(function () {
+        i["in"].call(a), t(window).off("load." + n);
+      }, e.timeoutCountdown);
+    }, supportCheck: function supportCheck(n) {
+      var i = t(this),
+          a = n.browser,
+          o = a.length,
+          e = !1;0 === o && (e = !0);for (var s = 0; o > s; s++) {
+        if ("string" == typeof i.css(a[s])) {
+          e = !0;break;
+        }
+      }return e;
+    }, optionCheck: function optionCheck(n) {
+      var a,
+          o = t(this);return a = n.overlay || o.data(i.settings.data.overlay) ? !0 : !1;
+    }, animationCheck: function animationCheck(i, a, o) {
+      var e = t(this),
+          s = e.data(n).options,
+          r = typeof i === "undefined" ? "undefined" : _typeof(i),
+          l = !a && "number" === r,
+          d = a && "string" === r && i.length > 0;return l || d ? i = i : a && o ? i = s.inClass : !a && o ? i = s.inDuration : a && !o ? i = s.outClass : a || o || (i = s.outDuration), i;
+    }, "in": function _in() {
+      var a = this,
+          o = t(this),
+          e = o.data(n).options,
+          s = o.data(i.settings.data.inDuration),
+          r = o.data(i.settings.data.inClass),
+          l = i.animationCheck.call(a, s, !1, !0),
+          d = i.animationCheck.call(a, r, !0, !0),
+          u = i.optionCheck.call(a, e),
+          c = o.data(n).outClass;e.loading && i.removeLoading.call(a), c && o.removeClass(c), u ? i.inOverlay.call(a, d, l) : i.inDefault.call(a, d, l);
+    }, inDefault: function inDefault(n, a) {
+      var o = t(this);o.css({ "animation-duration": a + "ms" }).addClass(n).trigger(i.settings.events.inStart).animateCallback(function () {
+        o.removeClass(n).css({ opacity: 1 }).trigger(i.settings.events.inEnd);
+      });
+    }, inOverlay: function inOverlay(a, o) {
+      var e = t(this),
+          s = e.data(n).options;e.css({ opacity: 1 }).trigger(i.settings.events.inStart), t(s.overlayParentElement).children("." + s.overlayClass).css({ "animation-duration": o + "ms" }).addClass(a).animateCallback(function () {
+        e.trigger(i.settings.events.inEnd);
+      });
+    }, out: function out(a, o) {
+      var e = this,
+          s = t(this),
+          r = s.data(n).options,
+          l = a.data(i.settings.data.outClass),
+          d = s.data(i.settings.data.outClass),
+          u = a.data(i.settings.data.outDuration),
+          c = s.data(i.settings.data.outDuration),
+          m = l ? l : d,
+          g = u ? u : c,
+          f = i.animationCheck.call(e, m, !0, !1),
+          v = i.animationCheck.call(e, g, !1, !1),
+          h = i.optionCheck.call(e, r);s.data(n).outClass = f, h ? i.outOverlay.call(e, f, v, o) : i.outDefault.call(e, f, v, o);
+    }, outDefault: function outDefault(a, o, e) {
+      var s = t(this),
+          r = s.data(n).options;s.css({ "animation-duration": o + 1 + "ms" }).addClass(a).trigger(i.settings.events.outStart).animateCallback(function () {
+        s.trigger(i.settings.events.outEnd), r.transition(e);
+      });
+    }, outOverlay: function outOverlay(a, o, e) {
+      var s = this,
+          r = t(this),
+          l = r.data(n).options,
+          d = r.data(i.settings.data.inClass),
+          u = i.animationCheck.call(s, d, !0, !0);t(l.overlayParentElement).children("." + l.overlayClass).css({ "animation-duration": o + 1 + "ms" }).removeClass(u).addClass(a).trigger(i.settings.events.outStart).animateCallback(function () {
+        r.trigger(i.settings.events.outEnd), l.transition(e);
+      });
+    }, destroy: function destroy() {
+      return this.each(function () {
+        var i = t(this);t(window).off("." + n), i.css({ opacity: 1 }).removeData(n);
+      });
+    } };t.fn.animateCallback = function (n) {
+    var i = "animationend webkitAnimationEnd";return this.each(function () {
+      var a = t(this);a.on(i, function () {
+        return a.off(i), n.call(this);
+      });
+    });
+  }, t.fn.animsition = function (a) {
+    return i[a] ? i[a].apply(this, Array.prototype.slice.call(arguments, 1)) : "object" != (typeof a === "undefined" ? "undefined" : _typeof(a)) && a ? void t.error("Method " + a + " does not exist on jQuery." + n) : i.init.apply(this, arguments);
+  };
+});
 
 /***/ }),
 /* 50 */

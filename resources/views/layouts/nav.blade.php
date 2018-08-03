@@ -119,7 +119,7 @@
             <div class="topbar-child2">
                 @auth
 	    				<a href="#"><span class="topbar-email">
-						fashe@example.com
+                                {{ Auth()->user()->email }}
                             </span></a>
                 @endauth
 
@@ -131,7 +131,7 @@
                 {{--</div>--}}
 
                 <!--  -->
-                <a href="{{ Auth::check() ? "/profile" : "/login" }}" class="header-wrapicon1 dis-block m-l-30">
+                <a href="{{ Auth::check() ? "/dashboard" : "/login" }}" class="header-wrapicon1 dis-block m-l-30">
                     <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
                 </a>
 

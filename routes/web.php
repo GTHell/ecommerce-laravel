@@ -19,3 +19,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+ * dashboard
+ */
+
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    Route::get('/', 'Dashboard\IndexController@index');
+    Route::get('/products', 'Dashboard\IndexController@index');
+    Route::get('/carts', 'Dashboard\IndexController@index');
+    Route::get('/orders', 'Dashboard\IndexController@index');
+});
