@@ -2,27 +2,27 @@
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
                     <span data-feather="home"></span>
                     Dashboard <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link {{ Request::is('dashboard/orders*') ? 'active' : '' }}" href="{{ route('orders') }}">
                     <span data-feather="file"></span>
                     Orders
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link {{ Request::is('dashboard/products*') ? 'active' : '' }}" href="{{ route('products') }}">
                     <span data-feather="shopping-cart"></span>
                     Products
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link {{ Request::is('dashboard/carts') ? 'active' : '' }}" href="{{ route('carts') }}">
                     <span data-feather="users"></span>
-                    Cart
+                    Carts
                 </a>
             </li>
             <li class="nav-item">

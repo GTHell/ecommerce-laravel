@@ -25,8 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
  */
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
-    Route::get('/', 'Dashboard\IndexController@index');
-    Route::get('/products', 'Dashboard\IndexController@index');
-    Route::get('/carts', 'Dashboard\IndexController@index');
-    Route::get('/orders', 'Dashboard\IndexController@index');
+    Route::get('/', 'Dashboard\IndexController@index')->name('dashboard');
+    Route::get('/products', 'Dashboard\ProductController@index')->name('products');
+    Route::get('/carts', 'Dashboard\CartController@index')->name('carts');
+    Route::get('/orders', 'Dashboard\OrderController@index')->name('orders');
 });

@@ -10,7 +10,7 @@
 
     <title>Dashboard Template for Bootstrap</title>
 
-    <link rel="stylesheet" href="css/dashboard/main.css">
+    <link rel="stylesheet" href="/css/dashboard/main.css">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
     </div>
 </div>
 
-<script src="js/dashboard/main.js"></script>
+<script src="/js/dashboard/main.js"></script>
 
 <!-- Icons -->
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
