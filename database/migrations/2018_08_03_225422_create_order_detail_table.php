@@ -17,6 +17,7 @@ class CreateOrderDetailTable extends Migration
             $table->increments('id');
             $table->integer('order_id');
             $table->integer('product_id');
+            $table->integer('attribute_value_id');
             $table->integer('price');
             $table->integer('quantity');
             $table->integer('discount');
