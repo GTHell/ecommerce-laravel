@@ -22,7 +22,7 @@ class Product extends Model
         return $this->hasMany('App\Models\ProductImage', 'product_id');
     }
 
-    public static function getTopSelling()
+    public static function getTopReview($limit = 5)
     {
         $prod = DB::table('product_reviews')
             ->select(DB::raw('count(rate) as count_rate, product_id, rate, products.name, products.unit_price'))
@@ -30,8 +30,13 @@ class Product extends Model
             ->groupBy('rate', 'product_id')
             ->orderBy('rate', 'DESC')
             ->orderBy('count_rate', 'DESC')
-            ->limit(5)
+            ->limit($limit)
             ->get();
+        return $prod;
+    }
+
+    public static function getTopSelling($limit = 5) {
+        $prod = Product::orderBy('sold', 'DESC')->limit($limit)->get();
         return $prod;
     }
 }

@@ -18,8 +18,9 @@ class IndexController extends Controller
 //        group by  rate, product_id
 //        order by rate desc, count_rate desc
 //        limit 5
-        $topSelling = Product::
+        $topSelling = Product::getTopSelling();
         return view('index')
-            ->with('randProd', $randProd);
+            ->with('randProd', $randProd)
+            ->with('topSellProduct', $topSelling);
     }
 }
