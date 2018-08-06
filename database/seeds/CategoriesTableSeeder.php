@@ -12,5 +12,12 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('categories')->insert([
+            ['name' => 'clothing', 'parent_id' => null],
+            ['name' => "men's clothing", 'parent_id' => 1],
+            ['name' => "women's clothing", 'parent_id' => 1],
+            ['name' => 'accessories', 'parent_id' => 1],
+            ['name' => 'bag', 'parent_id' => 1]
+        ]);
     }
 }
