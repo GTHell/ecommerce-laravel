@@ -48,4 +48,9 @@ class Product extends Model
         $prod = Product::orderBy('sold', 'DESC')->limit($limit)->get();
         return $prod;
     }
+
+    // many-to-many Relationship of carts and products
+    public function carts () {
+        return $this->belongsToMany('App\Models\Cart', 'carts_products', 'product_id');
+    }
 }
