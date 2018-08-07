@@ -20,17 +20,17 @@ mix.autoload({jquery: ['$', 'window.jQuery',"jQuery","window.$","jquery","window
   .js('resources/assets/js/app.js', 'public/js')
   .js([
     'resources/assets/vendor/jquery/jquery-3.2.1.min.js',
-    'resources/assets/vendor/animsition/js/animsition.min.js',
+    // 'resources/assets/vendor/animsition/js/animsition.min.js',
     'resources/assets/vendor/bootstrap-4.1.3/js/popper.js',
     'resources/assets/vendor/bootstrap-4.1.3/js/bootstrap.min.js',
     'resources/assets/vendor/select2/select2.min.js',
     'resources/assets/vendor/slick/slick.min.js',
-    'resources/assets/js/slick-custom.js',
+    'resources/assets/js/main/slick-custom.js',
     'resources/assets/vendor/countdowntime/countdowntime.js',
     'resources/assets/vendor/lightbox2/js/lightbox.min.js',
     'resources/assets/vendor/sweetalert/sweetalert.min.js',
     'resources/assets/vendor/parallax100/parallax100.js',
-    'resources/assets/js/main.js'
+    'resources/assets/js/main/main.js'
   ], 'public/js/main.js')
   .styles([
     'resources/assets/vendor/bootstrap-4.1.3/css/bootstrap.min.css',

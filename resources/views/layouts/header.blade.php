@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/main.css">
     <!--===============================================================================================-->
 </head>
-<body class="animsition">
+<body>
 
 <!-- header fixed -->
 <div class="wrap_header fixed-header2 trans-0-4">

@@ -13,14 +13,22 @@ class IndexController extends Controller
         $randProd = Product::inRandomOrder()->limit(3)->get();
 
         // Top selling product
+        $topSelling = Product::getTopSelling(8);
+
 //        SELECT count(rate) as count_rate, product_id, rate
 //        from product_reviews
 //        group by  rate, product_id
 //        order by rate desc, count_rate desc
 //        limit 5
-        $topSelling = Product::getTopSelling();
+        // Top review product
+        $topReview = Product::getTopReview(8);
+
+        $latest = Product::orderBy('created_at', 'DESC')->limit(8)->get();
+
         return view('index')
             ->with('randProd', $randProd)
-            ->with('topSellProduct', $topSelling);
+            ->with('topReviewProduct', $topReview)
+            ->with('topSellProduct', $topSelling)
+            ->with('latestProduct', $latest);
     }
 }
