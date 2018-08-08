@@ -18,13 +18,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/products/{id}', 'ProductController@getProduct')->name('api/getProduct');
+
 /*
  * dashboard
  */
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/', 'Dashboard\IndexController@index')->name('dashboard');
+    // Product
     Route::get('/products', 'Dashboard\ProductController@index')->name('products');
+    // Cart
     Route::get('/carts', 'Dashboard\CartController@index')->name('carts');
     Route::get('/orders', 'Dashboard\OrderController@index')->name('orders');
 });

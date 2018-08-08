@@ -30,7 +30,8 @@ mix.autoload({jquery: ['$', 'window.jQuery',"jQuery","window.$","jquery","window
     'resources/assets/vendor/lightbox2/js/lightbox.min.js',
     'resources/assets/vendor/sweetalert/sweetalert.min.js',
     'resources/assets/vendor/parallax100/parallax100.js',
-    'resources/assets/js/main/main.js'
+    'resources/assets/js/main/main.js',
+    'resources/assets/js/main/app.js'
   ], 'public/js/main.js')
   .styles([
     'resources/assets/vendor/bootstrap-4.1.3/css/bootstrap.min.css',

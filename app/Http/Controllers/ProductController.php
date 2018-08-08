@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,6 @@ class ProductController extends Controller
     public function getProduct ($id) {
         $product = Product::find($id);
 
-        return 123;
         return response()->json($product, 200);
     }
 }

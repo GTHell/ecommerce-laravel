@@ -145,9 +145,11 @@
                                                         View
                                                     </a>
 
-                                                    <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                        Add to Cart
-                                                    </button>
+                                                    <add-cart pid="{{ $product->id }}">
+                                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                            Add to Cart
+                                                        </button>
+                                                    </add-cart>
                                                 </div>
                                             </div>
                                         </div>
