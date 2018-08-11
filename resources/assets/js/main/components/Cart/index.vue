@@ -37,7 +37,12 @@
 	  computed: {
 		  ...mapGetters ({
 			  carts: 'cart/carts'
-		  })
+		  }),
+		  total: function() {
+		    // var value = this.cart.reduce((a, b) => ({total: a. + b.x}));
+      
+		    // return value.total;
+      }
 	  }
   }
 </script>

@@ -53428,16 +53428,18 @@ var state = {
 
     if (item) {
       item.qty++;
+      item.total_price += parseInt(item.unit_price);
     } else {
       var adjustItem = payload;
       // adjustItem.qty = 1;
       Vue.set(adjustItem, 'qty', 1);
+      Vue.set(adjustItem, 'total_price', parseInt(adjustItem.unit_price));
       state.carts.push(adjustItem);
       // Vue.set(state.carts.item, state.carts.indexOf(item), adjustItem);
 
-      console.log('success');
-      console.log(state.carts);
+      // console.log('success')
     }
+    console.log(state.carts[0].total_price / 100);
   },
   INCREMENT_TO_CART: function INCREMENT_TO_CART(state, payload) {
     // let item = _.find(state.carts, function(i){ return i.id === payload });
@@ -54511,7 +54513,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
   },
   computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_Vuex__["a" /* mapGetters */])({
     carts: 'cart/carts'
-  }))
+  }), {
+    total: function total() {
+      // var value = this.cart.reduce((a, b) => ({total: a. + b.x}));
+
+      // return value.total;
+    }
+  })
 });
 
 /***/ }),
@@ -54623,7 +54631,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Header"
+  name: "Header",
+  props: ['total-price']
 });
 
 /***/ }),
@@ -54634,25 +54643,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "shopping-cart-header" }, [
-      _c("i", { staticClass: "fas fa-shopping-cart cart-icon" }),
-      _c("span", { staticClass: "badge" }, [_vm._v("3")]),
+  return _c("div", { staticClass: "shopping-cart-header" }, [
+    _c("i", { staticClass: "fas fa-shopping-cart cart-icon" }),
+    _c("span", { staticClass: "badge" }, [_vm._v("3")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "shopping-cart-total" }, [
+      _c("span", { staticClass: "lighter-text" }, [_vm._v("Total:")]),
       _vm._v(" "),
-      _c("div", { staticClass: "shopping-cart-total" }, [
-        _c("span", { staticClass: "lighter-text" }, [_vm._v("Total:")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "main-color-text" }, [_vm._v("$2,229.97")])
+      _c("span", { staticClass: "main-color-text" }, [
+        _vm._v("$" + _vm._s(_vm.totalPrice / 100))
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

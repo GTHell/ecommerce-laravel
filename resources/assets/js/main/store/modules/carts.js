@@ -28,16 +28,18 @@ const mutations = {
     
     if (item) {
       item.qty++;
+      item.total_price += parseInt(item.unit_price)
     } else {
       let adjustItem = payload;
       // adjustItem.qty = 1;
       Vue.set(adjustItem, 'qty', 1);
+      Vue.set(adjustItem, 'total_price', parseInt(adjustItem.unit_price))
       state.carts.push(adjustItem);
       // Vue.set(state.carts.item, state.carts.indexOf(item), adjustItem);
       
-      console.log('success')
-      console.log(state.carts)
+      // console.log('success')
     }
+    console.log(state.carts[0].total_price/100)
   },
   INCREMENT_TO_CART: (state, payload) => {
     // let item = _.find(state.carts, function(i){ return i.id === payload });

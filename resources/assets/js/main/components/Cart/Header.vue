@@ -3,14 +3,15 @@
 		<i class="fas fa-shopping-cart cart-icon"></i><span class="badge">3</span>
 		<div class="shopping-cart-total">
 			<span class="lighter-text">Total:</span>
-			<span class="main-color-text">$2,229.97</span>
+			<span class="main-color-text">${{totalPrice/100}}</span>
 		</div>
 	</div>
 </template>
 
 <script>
   export default {
-    name: "Header"
+    name: "Header",
+	  props: ['total-price']
   }
 </script>
 
