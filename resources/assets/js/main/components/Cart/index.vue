@@ -7,13 +7,15 @@
 			</button>
 			<div class="dropdown-menu p-0 dropdown-menu-right" aria-labelledby="dropdownMenuOffset">
 				<div class="shopping-cart">
-					<div v-if="$store.state.cart.length == 0">
+					<div v-if="carts.length == 0">
 						<p>Cart is empty</p>
 					</div>
 					<div v-else>
 						<cart-header></cart-header>
-						<cart-items></cart-items>
-						<a href="#" class="btn btn-primary btn-block">Checkout</a>
+						<ul>
+							<cart-items v-for="cart in carts" :item="cart"></cart-items>
+						</ul>
+						<a href="/carts" class="btn btn-primary btn-block">Checkout</a>
 					</div>
 				</div>
 			</div>
@@ -24,13 +26,19 @@
 <script>
   import Header from './Header'
   import List from './ItemList'
+  import { mapGetters } from 'Vuex'
   
   export default {
     name: "index",
     components: {
       'cart-header': Header,
 	    'cart-items': List
-    }
+    },
+	  computed: {
+		  ...mapGetters ({
+			  carts: 'cart/carts'
+		  })
+	  }
   }
 </script>
 

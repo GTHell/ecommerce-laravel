@@ -1,5 +1,8 @@
 import CartAPI from '../../services/CartService'
 
+let cart = window.localStorage.getItem('cart');
+let cartCount = window.localStorage.getItem('cartCount');
+
 // state
 const state = {
   carts: [],
@@ -13,9 +16,11 @@ const getters = {
 
 // mutations
 const mutations = {
+  SAVE_CART: (state) => {
+    window.localStorage.setItem('cart', JSON.stringify(state.cart));
+    window.localStorage.setItem('cartCount', state.cartCount);
+  },
   ADD_TO_CART: (state, payload) => {
-    console.log(payload)
-    return 0;
     
     let item = _.find(state.carts, function (i) {
       return i.id === payload.id
@@ -29,6 +34,9 @@ const mutations = {
       Vue.set(adjustItem, 'qty', 1);
       state.carts.push(adjustItem);
       // Vue.set(state.carts.item, state.carts.indexOf(item), adjustItem);
+      
+      console.log('success')
+      console.log(state.carts)
     }
   },
   INCREMENT_TO_CART: (state, payload) => {
@@ -70,10 +78,9 @@ const mutations = {
 const actions = {
   async addToCart (context, payload) {
     const response = await CartAPI.getProduct(payload)
-    
-    console.log(response.data)
-    
-    context.commit('ADD_TO_CART', payload);
+  
+    context.commit('ADD_TO_CART', response.data)
+    context.commit('SAVE_CART', state.carts)
   },
   incrementToCart: (context, payload) => {
     context.commit('INCREMENT_TO_CART', payload);

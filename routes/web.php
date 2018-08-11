@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/products/{id}', 'ProductController@getProduct')->name('api/getProduct');
+Route::get('/carts', 'CartController@index')->name('carts');
 
 /*
  * dashboard
@@ -27,8 +28,8 @@ Route::get('/products/{id}', 'ProductController@getProduct')->name('api/getProdu
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/', 'Dashboard\IndexController@index')->name('dashboard');
     // Product
-    Route::get('/products', 'Dashboard\ProductController@index')->name('products');
+    Route::get('/products', 'Dashboard\ProductController@index')->name('dashboard.products');
     // Cart
-    Route::get('/carts', 'Dashboard\CartController@index')->name('carts');
-    Route::get('/orders', 'Dashboard\OrderController@index')->name('orders');
+    Route::get('/carts', 'Dashboard\CartController@index')->name('dashboard.carts');
+    Route::get('/orders', 'Dashboard\OrderController@index')->name('dashboard.orders');
 });

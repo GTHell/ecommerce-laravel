@@ -2,10 +2,10 @@
 	<div>
 		<ul class="shopping-cart-items">
 			<li class="clearfix">
-				<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1"/>
-				<span class="item-name">Sony DSC-RX100M III</span>
-				<span class="item-price">$849.99</span>
-				<span class="item-quantity">Quantity: 01</span>
+				<img style="width: 66px;" src="" alt="item1"/>
+				<span class="item-name">{{item.name}}</span>
+				<span class="item-price">${{(item.unit_price/100) * item.qty}}</span>
+				<span class="item-quantity">Quantity: {{item.qty}}</span>
 			</li>
 		</ul>
 	</div>
@@ -13,7 +13,8 @@
 
 <script>
   export default {
-    name: "ItemList"
+    name: "ItemList",
+	  props: ['item']
   }
 </script>
 
