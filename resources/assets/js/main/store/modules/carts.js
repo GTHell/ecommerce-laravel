@@ -1,11 +1,11 @@
 import CartAPI from '../../services/CartService'
 
-let cart = window.localStorage.getItem('cart');
-let cartCount = window.localStorage.getItem('cartCount');
+let cart = window.localStorage.getItem('cart')
+// let cartCount = window.localStorage.getItem('cartCount');
 
 // state
 const state = {
-  carts: [],
+  carts: cart ? JSON.parse(cart) : []
 }
 
 // getters
@@ -17,8 +17,9 @@ const getters = {
 // mutations
 const mutations = {
   SAVE_CART: (state) => {
-    window.localStorage.setItem('cart', JSON.stringify(state.cart));
-    window.localStorage.setItem('cartCount', state.cartCount);
+    window.localStorage.setItem('cart', JSON.stringify(state.carts));
+    console.log(JSON.parse(window.localStorage.getItem('cart')))
+    // window.localStorage.setItem('cartCount', state.cartCount);
   },
   ADD_TO_CART: (state, payload) => {
     
@@ -82,7 +83,9 @@ const actions = {
     const response = await CartAPI.getProduct(payload)
   
     context.commit('ADD_TO_CART', response.data)
+    // console.log('commited ADD_TO_CART')
     context.commit('SAVE_CART', state.carts)
+    // console.log('commited SAVE_CART')
   },
   incrementToCart: (context, payload) => {
     context.commit('INCREMENT_TO_CART', payload);

@@ -53401,11 +53401,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 var cart = window.localStorage.getItem('cart');
-var cartCount = window.localStorage.getItem('cartCount');
+// let cartCount = window.localStorage.getItem('cartCount');
 
 // state
 var state = {
-  carts: []
+  carts: cart ? JSON.parse(cart) : []
 
   // getters
 };var getters = {
@@ -53417,8 +53417,9 @@ var state = {
   // mutations
 };var mutations = {
   SAVE_CART: function SAVE_CART(state) {
-    window.localStorage.setItem('cart', JSON.stringify(state.cart));
-    window.localStorage.setItem('cartCount', state.cartCount);
+    window.localStorage.setItem('cart', JSON.stringify(state.carts));
+    console.log(JSON.parse(window.localStorage.getItem('cart')));
+    // window.localStorage.setItem('cartCount', state.cartCount);
   },
   ADD_TO_CART: function ADD_TO_CART(state, payload) {
 
@@ -53492,7 +53493,9 @@ var state = {
 
 
               context.commit('ADD_TO_CART', response.data);
+              // console.log('commited ADD_TO_CART')
               context.commit('SAVE_CART', state.carts);
+              // console.log('commited SAVE_CART')
 
             case 5:
             case 'end':
