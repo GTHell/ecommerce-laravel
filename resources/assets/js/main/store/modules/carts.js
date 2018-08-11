@@ -39,7 +39,7 @@ const mutations = {
       
       // console.log('success')
     }
-    console.log(state.carts[0].total_price/100)
+    // console.log(state.carts[0].total_price/100)
   },
   INCREMENT_TO_CART: (state, payload) => {
     // let item = _.find(state.carts, function(i){ return i.id === payload });

@@ -26,7 +26,7 @@
 <script>
   import Header from './Header'
   import List from './ItemList'
-  import { mapGetters } from 'Vuex'
+  import { mapGetters } from 'vuex'
   
   export default {
     name: "index",
@@ -37,12 +37,7 @@
 	  computed: {
 		  ...mapGetters ({
 			  carts: 'cart/carts'
-		  }),
-		  total: function() {
-		    // var value = this.cart.reduce((a, b) => ({total: a. + b.x}));
-      
-		    // return value.total;
-      }
+		  })
 	  }
   }
 </script>
