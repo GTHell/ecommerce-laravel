@@ -142,19 +142,19 @@
 
     <div class="t-center p-l-15 p-r-15">
         <a href="#">
-            <img class="h-size2" src="images/icons/paypal.png" alt="IMG-PAYPAL">
+            <img class="h-size2" src="/images/icons/paypal.png" alt="IMG-PAYPAL">
         </a>
 
         <a href="#">
-            <img class="h-size2" src="images/icons/visa.png" alt="IMG-VISA">
+            <img class="h-size2" src="/images/icons/visa.png" alt="IMG-VISA">
         </a>
 
         <a href="#">
-            <img class="h-size2" src="images/icons/mastercard.png" alt="IMG-MASTERCARD">
+            <img class="h-size2" src="/images/icons/mastercard.png" alt="IMG-MASTERCARD">
         </a>
 
         <a href="#">
-            <img class="h-size2" src="images/icons/express.png" alt="IMG-EXPRESS">
+            <img class="h-size2" src="/images/icons/express.png" alt="IMG-EXPRESS">
         </a>
 
         <a href="#">
@@ -200,7 +200,7 @@
 {{-- Lazy load--}}
 <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
 
-<script src="js/main.js"></script>
+<script src="/js/main.js"></script>
 
 @stack('footer')
 

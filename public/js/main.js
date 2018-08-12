@@ -54340,7 +54340,7 @@ if (hadRuntime) {
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
   return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
-    baseURL: 'http://localhost:8000'
+    baseURL: 'http://localhost:8000/api'
   });
 });
 
@@ -54870,7 +54870,7 @@ var render = function() {
         [
           _c("img", {
             staticClass: "header-icon1 js-show-header-dropdown",
-            attrs: { src: "images/icons/icon-header-02.png", alt: "ICON" }
+            attrs: { src: "/images/icons/icon-header-02.png", alt: "ICON" }
           }),
           _vm._v(" "),
           _c("span", { staticClass: "header-icons-noti" }, [
@@ -55508,7 +55508,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("td", { staticClass: "column-1" }, [
       _c("div", { staticClass: "cart-img-product b-rad-4 o-f-hidden" }, [
-        _c("img", { attrs: { src: "images/item-10.jpg", alt: "IMG-PRODUCT" } })
+        _c("img", { attrs: { src: "/images/item-10.jpg", alt: "IMG-PRODUCT" } })
       ])
     ])
   },

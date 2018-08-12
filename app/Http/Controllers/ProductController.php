@@ -13,6 +13,10 @@ class ProductController extends Controller
         return view('dashboard.product');
     }
 
+    public function show($id) {
+        return view('detail');
+    }
+
     public function getProduct ($id) {
         $product = Product::find($id);
 
