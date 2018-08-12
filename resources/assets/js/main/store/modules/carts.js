@@ -18,7 +18,7 @@ const getters = {
 const mutations = {
   SAVE_CART: (state) => {
     window.localStorage.setItem('cart', JSON.stringify(state.carts));
-    console.log(JSON.parse(window.localStorage.getItem('cart')))
+    // console.log(JSON.parse(window.localStorage.getItem('cart')))
     // window.localStorage.setItem('cartCount', state.cartCount);
   },
   ADD_TO_CART: (state, payload) => {
@@ -89,12 +89,15 @@ const actions = {
   },
   incrementToCart: (context, payload) => {
     context.commit('INCREMENT_TO_CART', payload);
+    context.commit('SAVE_CART', state.carts)
   },
   decrementToCart: (context, payload) => {
     context.commit('DECREMENT_TO_CART', payload);
+    context.commit('SAVE_CART', state.carts)
   },
   deleteFromCart: (context, payload) => {
     context.commit('DELETE_FROM_CART', payload);
+    context.commit('SAVE_CART', state.carts)
   }
 }
 

@@ -5,45 +5,67 @@
 			<!-- Cart item -->
 			<div class="container-table-cart pos-relative">
 				<div class="wrap-table-shopping-cart bgwhite">
-					<table class="table-shopping-cart">
-						<tr class="table-head">
-							<th class="column-1"></th>
-							<th class="column-2">Product</th>
-							<th class="column-3">Price</th>
-							<th class="column-4 p-l-70">Quantity</th>
-							<th class="column-5">Total</th>
-						</tr>
-						
-						<tr class="table-row">
-							<td class="column-1">
-								<div class="cart-img-product b-rad-4 o-f-hidden">
-									<img src="images/item-10.jpg" alt="IMG-PRODUCT">
-								</div>
-							</td>
-							<td class="column-2">Men Tshirt</td>
-							<td class="column-3">$36.00</td>
-							<td class="column-4">
-								<div class="flex-w bo5 of-hidden w-size17">
-									<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-									</button>
-									
-									<input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="1">
-									
-									<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-									</button>
-								</div>
-							</td>
-							<td class="column-5">$36.00</td>
-						</tr>
-					</table>
+					<div v-if="carts.length">
+						<table class="table-shopping-cart">
+							<tr class="table-head">
+								<th class="column-1"></th>
+								<th class="column-2">Product</th>
+								<th class="column-3">Price</th>
+								<th class="column-4 p-l-70">Quantity</th>
+								<th class="column-5">Total</th>
+							</tr>
+							
+							<tr v-for="item in carts" class="table-row">
+								<td class="column-1">
+									<div class="cart-img-product b-rad-4 o-f-hidden">
+										<img src="images/item-10.jpg" alt="IMG-PRODUCT">
+									</div>
+								</td>
+								<td class="column-2">{{ item.name }}</td>
+								<td class="column-3">{{ item.unit_price | currency }}</td>
+								<td class="column-4">
+									<div class="input-group">
+										<input style="background-color: #f1f1f1"
+										       type="number"
+										       min="1"
+										       oninput="this.value=(this.value === null) ? 1 : this.value;"
+										       class="form-control" :value="item.qty" aria-label="Recipient's username"
+										       aria-describedby="basic-addon2">
+										<div class="input-group-append">
+											<button class="btn btn-outline-secondary" @click="incrementToCart(item.id)"
+											        type="button">+
+											</button>
+											<button class="btn btn-outline-secondary" @click="decrementToCart(item.id)"
+											        type="button">-
+											</button>
+										</div>
+									</div>
+									<!--<div class="flex-w bo5 of-hidden w-size17">-->
+									<!--<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">-->
+									<!--<i class="fs-12 fa fa-minus" aria-hidden="true"></i>-->
+									<!--</button>-->
+									<!---->
+									<!--<input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="{{ item.qty }}">-->
+									<!---->
+									<!--<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">-->
+									<!--<i class="fs-12 fa fa-plus" aria-hidden="true"></i>-->
+									<!--</button>-->
+									<!--</div>-->
+								</td>
+								<td class="column-5">{{ item.total_price | currency}}</td>
+							</tr>
+						</table>
+					</div>
+					<div v-else>
+						<h2>Cart is empty</h2>
+					</div>
+				
 				</div>
 			</div>
 			
 			
 			<!-- Total -->
-			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+			<div v-if="carts.length" class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
 				<h5 class="m-text20 p-b-24">
 					Cart Totals
 				</h5>
@@ -67,7 +89,8 @@
 					
 					<div class="w-size20 w-full-sm">
 						<p class="s-text8 p-b-23">
-							There are no shipping methods available. Please double check your address, or contact us if you need any help.
+							There are no shipping methods available. Please double check your address, or contact us if you need any
+							help.
 						</p>
 						
 						<span class="s-text19">
@@ -123,8 +146,31 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
+  
   export default {
-    name: "index"
+    name: "index",
+    computed: {
+      ...mapGetters({
+        carts: 'cart/carts'
+      })
+    },
+    methods: {
+      incrementToCart: function (id) {
+        this.$store.dispatch('cart/incrementToCart', id);
+      },
+      decrementToCart: function (id) {
+        this.$store.dispatch('cart/decrementToCart', id);
+      },
+      deleteFromCart: function (id) {
+        this.$store.dispatch('cart/deleteFromCart', id);
+      }
+    },
+    filters: {
+      currency: function (val) {
+        return '$' + (val / 100).toFixed(2)
+      }
+    }
   }
 </script>
 

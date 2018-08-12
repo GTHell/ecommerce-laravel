@@ -53418,7 +53418,7 @@ var state = {
 };var mutations = {
   SAVE_CART: function SAVE_CART(state) {
     window.localStorage.setItem('cart', JSON.stringify(state.carts));
-    console.log(JSON.parse(window.localStorage.getItem('cart')));
+    // console.log(JSON.parse(window.localStorage.getItem('cart')))
     // window.localStorage.setItem('cartCount', state.cartCount);
   },
   ADD_TO_CART: function ADD_TO_CART(state, payload) {
@@ -53514,12 +53514,15 @@ var state = {
 
   incrementToCart: function incrementToCart(context, payload) {
     context.commit('INCREMENT_TO_CART', payload);
+    context.commit('SAVE_CART', state.carts);
   },
   decrementToCart: function decrementToCart(context, payload) {
     context.commit('DECREMENT_TO_CART', payload);
+    context.commit('SAVE_CART', state.carts);
   },
   deleteFromCart: function deleteFromCart(context, payload) {
     context.commit('DELETE_FROM_CART', payload);
+    context.commit('SAVE_CART', state.carts);
   }
 };
 
@@ -55158,7 +55161,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -55169,6 +55172,32 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(18);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55294,8 +55323,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "index"
+  name: "index",
+  computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])({
+    carts: 'cart/carts'
+  })),
+  methods: {
+    incrementToCart: function incrementToCart(id) {
+      this.$store.dispatch('cart/incrementToCart', id);
+    },
+    decrementToCart: function decrementToCart(id) {
+      this.$store.dispatch('cart/decrementToCart', id);
+    },
+    deleteFromCart: function deleteFromCart(id) {
+      this.$store.dispatch('cart/deleteFromCart', id);
+    }
+  },
+  filters: {
+    currency: function currency(val) {
+      return '$' + (val / 100).toFixed(2);
+    }
+  }
 });
 
 /***/ }),
@@ -55306,217 +55356,261 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("section", { staticClass: "cart bgwhite p-t-70 p-b-100" }, [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "container-table-cart pos-relative" }, [
+        _c("div", { staticClass: "wrap-table-shopping-cart bgwhite" }, [
+          _vm.carts.length
+            ? _c("div", [
+                _c(
+                  "table",
+                  { staticClass: "table-shopping-cart" },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _vm._l(_vm.carts, function(item) {
+                      return _c("tr", { staticClass: "table-row" }, [
+                        _vm._m(1, true),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "column-2" }, [
+                          _vm._v(_vm._s(item.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "column-3" }, [
+                          _vm._v(_vm._s(_vm._f("currency")(item.unit_price)))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "column-4" }, [
+                          _c("div", { staticClass: "input-group" }, [
+                            _c("input", {
+                              staticClass: "form-control",
+                              staticStyle: { "background-color": "#f1f1f1" },
+                              attrs: {
+                                type: "number",
+                                min: "1",
+                                oninput:
+                                  "this.value=(this.value === null) ? 1 : this.value;",
+                                "aria-label": "Recipient's username",
+                                "aria-describedby": "basic-addon2"
+                              },
+                              domProps: { value: item.qty }
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "input-group-append" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-outline-secondary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.incrementToCart(item.id)
+                                    }
+                                  }
+                                },
+                                [_vm._v("+\n\t\t\t\t\t\t\t\t\t\t")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-outline-secondary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.decrementToCart(item.id)
+                                    }
+                                  }
+                                },
+                                [_vm._v("-\n\t\t\t\t\t\t\t\t\t\t")]
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "column-5" }, [
+                          _vm._v(_vm._s(_vm._f("currency")(item.total_price)))
+                        ])
+                      ])
+                    })
+                  ],
+                  2
+                )
+              ])
+            : _c("div", [_c("h2", [_vm._v("Cart is empty")])])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm.carts.length
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm"
+            },
+            [
+              _c("h5", { staticClass: "m-text20 p-b-24" }, [
+                _vm._v("\n\t\t\t\tCart Totals\n\t\t\t")
+              ]),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _vm._m(4),
+              _vm._v(" "),
+              _vm._m(5)
+            ]
+          )
+        : _vm._e()
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "cart bgwhite p-t-70 p-b-100" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "container-table-cart pos-relative" }, [
-          _c("div", { staticClass: "wrap-table-shopping-cart bgwhite" }, [
-            _c("table", { staticClass: "table-shopping-cart" }, [
-              _c("tr", { staticClass: "table-head" }, [
-                _c("th", { staticClass: "column-1" }),
-                _vm._v(" "),
-                _c("th", { staticClass: "column-2" }, [_vm._v("Product")]),
-                _vm._v(" "),
-                _c("th", { staticClass: "column-3" }, [_vm._v("Price")]),
-                _vm._v(" "),
-                _c("th", { staticClass: "column-4 p-l-70" }, [
-                  _vm._v("Quantity")
-                ]),
-                _vm._v(" "),
-                _c("th", { staticClass: "column-5" }, [_vm._v("Total")])
-              ]),
-              _vm._v(" "),
-              _c("tr", { staticClass: "table-row" }, [
-                _c("td", { staticClass: "column-1" }, [
-                  _c(
-                    "div",
-                    { staticClass: "cart-img-product b-rad-4 o-f-hidden" },
-                    [
-                      _c("img", {
-                        attrs: { src: "images/item-10.jpg", alt: "IMG-PRODUCT" }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "column-2" }, [_vm._v("Men Tshirt")]),
-                _vm._v(" "),
-                _c("td", { staticClass: "column-3" }, [_vm._v("$36.00")]),
-                _vm._v(" "),
-                _c("td", { staticClass: "column-4" }, [
-                  _c("div", { staticClass: "flex-w bo5 of-hidden w-size17" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "btn-num-product-down color1 flex-c-m size7 bg8 eff2"
-                      },
-                      [
-                        _c("i", {
-                          staticClass: "fs-12 fa fa-minus",
-                          attrs: { "aria-hidden": "true" }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "size8 m-text18 t-center num-product",
-                      attrs: {
-                        type: "number",
-                        name: "num-product1",
-                        value: "1"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "btn-num-product-up color1 flex-c-m size7 bg8 eff2"
-                      },
-                      [
-                        _c("i", {
-                          staticClass: "fs-12 fa fa-plus",
-                          attrs: { "aria-hidden": "true" }
-                        })
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "column-5" }, [_vm._v("$36.00")])
-              ])
-            ])
-          ])
+    return _c("tr", { staticClass: "table-head" }, [
+      _c("th", { staticClass: "column-1" }),
+      _vm._v(" "),
+      _c("th", { staticClass: "column-2" }, [_vm._v("Product")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "column-3" }, [_vm._v("Price")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "column-4 p-l-70" }, [_vm._v("Quantity")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "column-5" }, [_vm._v("Total")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "column-1" }, [
+      _c("div", { staticClass: "cart-img-product b-rad-4 o-f-hidden" }, [
+        _c("img", { attrs: { src: "images/item-10.jpg", alt: "IMG-PRODUCT" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex-w flex-sb-m p-b-12" }, [
+      _c("span", { staticClass: "s-text18 w-size19 w-full-sm" }, [
+        _vm._v("\n\t\t\t\t\tSubtotal:\n\t\t\t\t")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "m-text21 w-size20 w-full-sm" }, [
+        _vm._v("\n\t\t\t\t\t$39.00\n\t\t\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex-w flex-sb bo10 p-t-15 p-b-20" }, [
+      _c("span", { staticClass: "s-text18 w-size19 w-full-sm" }, [
+        _vm._v("\n\t\t\t\t\tShipping:\n\t\t\t\t")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-size20 w-full-sm" }, [
+        _c("p", { staticClass: "s-text8 p-b-23" }, [
+          _vm._v(
+            "\n\t\t\t\t\t\tThere are no shipping methods available. Please double check your address, or contact us if you need any\n\t\t\t\t\t\thelp.\n\t\t\t\t\t"
+          )
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "s-text19" }, [
+          _vm._v("\n\t\t\t\t\t\tCalculate Shipping\n\t\t\t\t\t")
         ]),
         _vm._v(" "),
         _c(
           "div",
           {
             staticClass:
-              "bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm"
+              "rs2-select2 rs3-select2 rs4-select2 bo4 of-hidden w-size21 m-t-8 m-b-12"
           },
           [
-            _c("h5", { staticClass: "m-text20 p-b-24" }, [
-              _vm._v("\n\t\t\t\tCart Totals\n\t\t\t")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex-w flex-sb-m p-b-12" }, [
-              _c("span", { staticClass: "s-text18 w-size19 w-full-sm" }, [
-                _vm._v("\n\t\t\t\t\tSubtotal:\n\t\t\t\t")
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "m-text21 w-size20 w-full-sm" }, [
-                _vm._v("\n\t\t\t\t\t$39.00\n\t\t\t\t")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex-w flex-sb bo10 p-t-15 p-b-20" }, [
-              _c("span", { staticClass: "s-text18 w-size19 w-full-sm" }, [
-                _vm._v("\n\t\t\t\t\tShipping:\n\t\t\t\t")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "w-size20 w-full-sm" }, [
-                _c("p", { staticClass: "s-text8 p-b-23" }, [
-                  _vm._v(
-                    "\n\t\t\t\t\t\tThere are no shipping methods available. Please double check your address, or contact us if you need any help.\n\t\t\t\t\t"
-                  )
-                ]),
+            _c(
+              "select",
+              { staticClass: "selection-2", attrs: { name: "country" } },
+              [
+                _c("option", [_vm._v("Select a country...")]),
                 _vm._v(" "),
-                _c("span", { staticClass: "s-text19" }, [
-                  _vm._v("\n\t\t\t\t\t\tCalculate Shipping\n\t\t\t\t\t")
-                ]),
+                _c("option", [_vm._v("US")]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "rs2-select2 rs3-select2 rs4-select2 bo4 of-hidden w-size21 m-t-8 m-b-12"
-                  },
-                  [
-                    _c(
-                      "select",
-                      {
-                        staticClass: "selection-2",
-                        attrs: { name: "country" }
-                      },
-                      [
-                        _c("option", [_vm._v("Select a country...")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("US")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("UK")]),
-                        _vm._v(" "),
-                        _c("option", [_vm._v("Japan")])
-                      ]
-                    )
-                  ]
-                ),
+                _c("option", [_vm._v("UK")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "size13 bo4 m-b-12" }, [
-                  _c("input", {
-                    staticClass: "sizefull s-text7 p-l-15 p-r-15",
-                    attrs: {
-                      type: "text",
-                      name: "state",
-                      placeholder: "State /  country"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "size13 bo4 m-b-22" }, [
-                  _c("input", {
-                    staticClass: "sizefull s-text7 p-l-15 p-r-15",
-                    attrs: {
-                      type: "text",
-                      name: "postcode",
-                      placeholder: "Postcode / Zip"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "size14 trans-0-4 m-b-10" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
-                    },
-                    [_vm._v("\n\t\t\t\t\t\t\tUpdate Totals\n\t\t\t\t\t\t")]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex-w flex-sb-m p-t-26 p-b-30" }, [
-              _c("span", { staticClass: "m-text22 w-size19 w-full-sm" }, [
-                _vm._v("\n\t\t\t\t\tTotal:\n\t\t\t\t")
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "m-text21 w-size20 w-full-sm" }, [
-                _vm._v("\n\t\t\t\t\t$39.00\n\t\t\t\t")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "size15 trans-0-4" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
-                },
-                [_vm._v("\n\t\t\t\t\tProceed to Checkout\n\t\t\t\t")]
-              )
-            ])
+                _c("option", [_vm._v("Japan")])
+              ]
+            )
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "size13 bo4 m-b-12" }, [
+          _c("input", {
+            staticClass: "sizefull s-text7 p-l-15 p-r-15",
+            attrs: {
+              type: "text",
+              name: "state",
+              placeholder: "State /  country"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "size13 bo4 m-b-22" }, [
+          _c("input", {
+            staticClass: "sizefull s-text7 p-l-15 p-r-15",
+            attrs: {
+              type: "text",
+              name: "postcode",
+              placeholder: "Postcode / Zip"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "size14 trans-0-4 m-b-10" }, [
+          _c(
+            "button",
+            {
+              staticClass:
+                "flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
+            },
+            [_vm._v("\n\t\t\t\t\t\t\tUpdate Totals\n\t\t\t\t\t\t")]
+          )
+        ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex-w flex-sb-m p-t-26 p-b-30" }, [
+      _c("span", { staticClass: "m-text22 w-size19 w-full-sm" }, [
+        _vm._v("\n\t\t\t\t\tTotal:\n\t\t\t\t")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "m-text21 w-size20 w-full-sm" }, [
+        _vm._v("\n\t\t\t\t\t$39.00\n\t\t\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "size15 trans-0-4" }, [
+      _c(
+        "button",
+        {
+          staticClass: "flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"
+        },
+        [_vm._v("\n\t\t\t\t\tProceed to Checkout\n\t\t\t\t")]
+      )
     ])
   }
 ]
