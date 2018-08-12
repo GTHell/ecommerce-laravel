@@ -38,6 +38,7 @@
 											<button class="btn btn-outline-secondary" @click="decrementToCart(item.id)"
 											        type="button">-
 											</button>
+											<a class="btn btn-danger" href="#" @click.prevent="deleteFromCart(item.id)">Del</a>
 										</div>
 									</div>
 									<!--<div class="flex-w bo5 of-hidden w-size17">-->
@@ -56,8 +57,9 @@
 							</tr>
 						</table>
 					</div>
-					<div v-else>
+					<div v-else class="text-center">
 						<h2>Cart is empty</h2>
+						<p>Go on more shopping!!!</p>
 					</div>
 				
 				</div>

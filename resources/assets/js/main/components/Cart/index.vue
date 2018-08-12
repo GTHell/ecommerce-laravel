@@ -4,6 +4,7 @@
 			<button type="button" data-toggle="dropdown" aria-haspopup="true"
 			        aria-expanded="false">
 				<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+				<span class="header-icons-noti">{{carts.length}}</span>
 			</button>
 			<div class="dropdown-menu p-0 dropdown-menu-right" aria-labelledby="dropdownMenuOffset">
 				<div class="shopping-cart">

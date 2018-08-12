@@ -1,102 +1,27 @@
 <!-- Header Icon -->
 <div class="header-icons">
-    <a href="#" class="header-wrapicon1 dis-block">
+    <a href="{{ Auth::check() ? "/dashboard" : "/login" }}" class="header-wrapicon1 dis-block m-l-30">
         <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
     </a>
 
     <span class="linedivide1"></span>
 
-    <div class="header-wrapicon2">
-        <img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-        <span class="header-icons-noti">0</span>
+    <shopping-cart></shopping-cart>
 
-        <!-- Header cart noti -->
-        <div class="header-cart header-dropdown">
-            <ul class="header-cart-wrapitem">
-                <li class="header-cart-item">
-                    <div class="header-cart-item-img">
-                        <img src="images/item-cart-01.jpg" alt="IMG">
-                    </div>
-
-                    <div class="header-cart-item-txt">
-                        <a href="#" class="header-cart-item-name">
-                            White Shirt With Pleat Detail Back
-                        </a>
-
-                        <span class="header-cart-item-info">
-									1 x $19.00
-								</span>
-                    </div>
-                </li>
-
-                <li class="header-cart-item">
-                    <div class="header-cart-item-img">
-                        <img src="images/item-cart-02.jpg" alt="IMG">
-                    </div>
-
-                    <div class="header-cart-item-txt">
-                        <a href="#" class="header-cart-item-name">
-                            Converse All Star Hi Black Canvas
-                        </a>
-
-                        <span class="header-cart-item-info">
-									1 x $39.00
-								</span>
-                    </div>
-                </li>
-
-                <li class="header-cart-item">
-                    <div class="header-cart-item-img">
-                        <img src="images/item-cart-03.jpg" alt="IMG">
-                    </div>
-
-                    <div class="header-cart-item-txt">
-                        <a href="#" class="header-cart-item-name">
-                            Nixon Porter Leather Watch In Tan
-                        </a>
-
-                        <span class="header-cart-item-info">
-									1 x $17.00
-								</span>
-                    </div>
-                </li>
-            </ul>
-
-            <div class="header-cart-total">
-                Total: $75.00
-            </div>
-
-            <div class="header-cart-buttons">
-                <div class="header-cart-wrapbtn">
-                    <!-- Button -->
-                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                        View Cart
-                    </a>
-                </div>
-
-                <div class="header-cart-wrapbtn">
-                    <!-- Button -->
-                    <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                        Check Out
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 </div>
 
-<!-- top noti -->
-<div class="flex-c-m size22 bg0 s-text21 pos-relative">
-    20% off everything!
-    <a href="product.html" class="s-text22 hov6 p-l-5">
-        Shop Now
-    </a>
+{{--<!-- top noti -->--}}
+{{--<div class="flex-c-m size22 bg0 s-text21 pos-relative">--}}
+{{--20% off everything!--}}
+{{--<a href="product.html" class="s-text22 hov6 p-l-5">--}}
+{{--Shop Now--}}
+{{--</a>--}}
 
-    <button class="flex-c-m pos2 size23 colorwhite eff3 trans-0-4 btn-romove-top-noti">
-        <i class="fas fa-remove fs-13" aria-hidden="true"></i>
-    </button>
-</div>
+{{--<button class="flex-c-m pos2 size23 colorwhite eff3 trans-0-4 btn-romove-top-noti">--}}
+{{--<i class="fas fa-remove fs-13" aria-hidden="true"></i>--}}
+{{--</button>--}}
+{{--</div>--}}
 
 <!-- Header -->
 <header class="header2">
@@ -118,19 +43,19 @@
 
             <div class="topbar-child2">
                 @auth
-	    				<a href="#"><span class="topbar-email">
+                    <a href="#"><span class="topbar-email">
                                 {{ Auth()->user()->email }}
                             </span></a>
-                @endauth
+            @endauth
 
-                {{--<div class="topbar-language rs1-select2">--}}
-                    {{--<select class="selection-1" name="time">--}}
-                        {{--<option>USD</option>--}}
-                        {{--<option>EUR</option>--}}
-                    {{--</select>--}}
-                {{--</div>--}}
+            {{--<div class="topbar-language rs1-select2">--}}
+            {{--<select class="selection-1" name="time">--}}
+            {{--<option>USD</option>--}}
+            {{--<option>EUR</option>--}}
+            {{--</select>--}}
+            {{--</div>--}}
 
-                <!--  -->
+            <!--  -->
                 <a href="{{ Auth::check() ? "/dashboard" : "/login" }}" class="header-wrapicon1 dis-block m-l-30">
                     <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
                 </a>
@@ -150,12 +75,12 @@
                     <ul class="main_menu">
                         <!-- Dropdown -->
                         {{--<li>--}}
-                            {{--<a href="index.html">Home</a>--}}
-                            {{--<ul class="sub_menu">--}}
-                                {{--<li><a href="index.html">Homepage V1</a></li>--}}
-                                {{--<li><a href="home-02.html">Homepage V2</a></li>--}}
-                                {{--<li><a href="home-03.html">Homepage V3</a></li>--}}
-                            {{--</ul>--}}
+                        {{--<a href="index.html">Home</a>--}}
+                        {{--<ul class="sub_menu">--}}
+                        {{--<li><a href="index.html">Homepage V1</a></li>--}}
+                        {{--<li><a href="home-02.html">Homepage V2</a></li>--}}
+                        {{--<li><a href="home-03.html">Homepage V3</a></li>--}}
+                        {{--</ul>--}}
                         {{--</li>--}}
                         <li class="sale-noti">
                             <a href="{{ route('index') }}">Shop</a>
@@ -166,11 +91,7 @@
                         </li>
 
                         <li>
-                            <a href="product.html">Sale</a>
-                        </li>
-
-                        <li>
-                            <a href="cart.html">Cart</a>
+                            <a href="{{ route('carts') }}">Cart</a>
                         </li>
                     </ul>
                 </nav>

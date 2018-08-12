@@ -202,5 +202,7 @@
 
 <script src="js/main.js"></script>
 
+@stack('footer')
+
 </body>
 </html>
