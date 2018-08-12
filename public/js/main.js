@@ -53486,7 +53486,7 @@ var state = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __WEBPACK_IMPORTED_MODULE_1__services_CartService__["a" /* default */].getProduct(payload);
+              return __WEBPACK_IMPORTED_MODULE_1__services_CartService__["a" /* default */].getProduct(payload.id);
 
             case 2:
               response = _context.sent;
@@ -55037,7 +55037,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
      props: ['pid'],
      methods: {
           addToCart: function addToCart(id) {
-               this.$store.dispatch('cart/addToCart', id);
+               var qty = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+               this.$store.dispatch('cart/addToCart', { id: id, qty: qty });
           }
      }
 });

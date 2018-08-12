@@ -80,7 +80,7 @@ const mutations = {
 // actions
 const actions = {
   async addToCart (context, payload) {
-    const response = await CartAPI.getProduct(payload)
+    const response = await CartAPI.getProduct(payload.id)
   
     context.commit('ADD_TO_CART', response.data)
     // console.log('commited ADD_TO_CART')

@@ -9,8 +9,8 @@
     name: "AddToCardWrapper",
 	  props: ['pid'],
 	  methods: {
-      addToCart: function(id) {
-	      this.$store.dispatch('cart/addToCart', id)
+      addToCart: function(id, qty=1) {
+	      this.$store.dispatch('cart/addToCart', {id, qty})
       }
 	  }
   }
