@@ -30,21 +30,21 @@
                     <div class="wrap-slick3-dots"></div>
 
                     <div class="slick3">
-                        <div class="item-slick3" data-thumb="images/thumb-item-01.jpg">
+                        <div class="item-slick3" data-thumb="/images/thumb-item-01.jpg">
                             <div class="wrap-pic-w">
-                                <img src="images/product-detail-01.jpg" alt="IMG-PRODUCT">
+                                <img src="/images/product-detail-01.jpg" alt="IMG-PRODUCT">
                             </div>
                         </div>
 
-                        <div class="item-slick3" data-thumb="images/thumb-item-02.jpg">
+                        <div class="item-slick3" data-thumb="/images/thumb-item-02.jpg">
                             <div class="wrap-pic-w">
-                                <img src="images/product-detail-02.jpg" alt="IMG-PRODUCT">
+                                <img src="/images/product-detail-02.jpg" alt="IMG-PRODUCT">
                             </div>
                         </div>
 
-                        <div class="item-slick3" data-thumb="images/thumb-item-03.jpg">
+                        <div class="item-slick3" data-thumb="/images/thumb-item-03.jpg">
                             <div class="wrap-pic-w">
-                                <img src="images/product-detail-03.jpg" alt="IMG-PRODUCT">
+                                <img src="/images/product-detail-03.jpg" alt="IMG-PRODUCT">
                             </div>
                         </div>
                     </div>
@@ -185,15 +185,5 @@
     <!-- Relate Product -->
 @endsection
 @push('footer')
-    <script type="text/javascript">
-      $(".selection-1").select2({
-        minimumResultsForSearch: 20,
-        dropdownParent: $('#dropDownSelect1')
-      });
 
-      $(".selection-2").select2({
-        minimumResultsForSearch: 20,
-        dropdownParent: $('#dropDownSelect2')
-      });
-    </script>
 @endpush

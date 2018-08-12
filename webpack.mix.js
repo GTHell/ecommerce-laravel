@@ -24,14 +24,14 @@ mix.autoload({jquery: ['$', 'window.jQuery',"jQuery","window.$","jquery","window
     'resources/assets/vendor/bootstrap-4.1.3/js/popper.js',
     'resources/assets/vendor/bootstrap-4.1.3/js/bootstrap.min.js',
     'resources/assets/vendor/select2/select2.min.js',
-    'resources/assets/vendor/slick/slick.min.js',
-    'resources/assets/js/main/slick-custom.js',
+    'resources/assets/vendor/slick1/slick.min.js',
     'resources/assets/vendor/countdowntime/countdowntime.js',
     'resources/assets/vendor/lightbox2/js/lightbox.min.js',
     'resources/assets/vendor/sweetalert/sweetalert.min.js',
     'resources/assets/vendor/parallax100/parallax100.js',
     'resources/assets/js/main/main.js',
-    'resources/assets/js/main/app.js'
+    'resources/assets/js/main/app.js',
+    'resources/assets/js/main/slick-custom.js'
   ], 'public/js/main.js')
   .styles([
     'resources/assets/vendor/bootstrap-4.1.3/css/bootstrap.min.css',
@@ -44,7 +44,7 @@ mix.autoload({jquery: ['$', 'window.jQuery',"jQuery","window.$","jquery","window
     'resources/assets/vendor/animsition/css/animsition.min.css',
     'resources/assets/vendor/select2/select2.min.css',
     'resources/assets/vendor/daterangepicker/daterangepicker.css',
-    'resources/assets/vendor/slick/slick.css',
+    'resources/assets/vendor/slick1/slick.css',
     'resources/assets/vendor/lightbox2/css/lightbox.min.css',
     'resources/assets/css/util.css',
     'resources/assets/css/main.css'
