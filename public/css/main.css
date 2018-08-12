@@ -10730,3 +10730,6 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 
+.checked {
+    color: darkorange;
+}

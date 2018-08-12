@@ -30,23 +30,13 @@
                     <div class="wrap-slick3-dots"></div>
 
                     <div class="slick3">
-                        <div class="item-slick3" data-thumb="/images/thumb-item-01.jpg">
-                            <div class="wrap-pic-w">
-                                <img src="/images/product-detail-01.jpg" alt="IMG-PRODUCT">
+                        @foreach($images as $image)
+                            <div class="item-slick3" data-thumb="{{ $image->url }}">
+                                <div class="wrap-pic-w">
+                                    <img src="{{ $image->url }}" alt="IMG-PRODUCT">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="item-slick3" data-thumb="/images/thumb-item-02.jpg">
-                            <div class="wrap-pic-w">
-                                <img src="/images/product-detail-02.jpg" alt="IMG-PRODUCT">
-                            </div>
-                        </div>
-
-                        <div class="item-slick3" data-thumb="/images/thumb-item-03.jpg">
-                            <div class="wrap-pic-w">
-                                <img src="/images/product-detail-03.jpg" alt="IMG-PRODUCT">
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -131,50 +121,29 @@
                         {{ $product->category->name }}
                     </span>
                 </div>
-
-                <!--  -->
-                <div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
-                    <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-                        Description
-                        <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-                        <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-                    </h5>
-
-                    <div class="dropdown-content dis-none p-t-15 p-b-23">
-                        <p class="s-text8">
-                            Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel
-                            sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
-                        </p>
-                    </div>
+                <div class="p-b-45">
+                    <span class="s-text8 m-r-35">SOLD: <strong>{{ $product->sold }}</strong></span>
                 </div>
 
-                <div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
-                    <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-                        Additional information
+                <div class="bo7 p-t-15 p-b-14">
+                    <h5 class="flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+                        Recent Reviews ({{ $reviewCount }})
                         <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
                         <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
                     </h5>
 
-                    <div class="dropdown-content dis-none p-t-15 p-b-23">
-                        <p class="s-text8">
-                            Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel
-                            sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
-                        </p>
-                    </div>
-                </div>
-
-                <div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
-                    <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-                        Reviews (0)
-                        <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-                        <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-                    </h5>
-
-                    <div class="dropdown-content dis-none p-t-15 p-b-23">
-                        <p class="s-text8">
-                            Fusce ornare mi vel risus porttitor dignissim. Nunc eget risus at ipsum blandit ornare vel
-                            sed velit. Proin gravida arcu nisl, a dignissim mauris placerat
-                        </p>
+                    <div class="p-t-15 p-b-23">
+                        @foreach($reviews as $review)
+                            <p class="s-text6 mt-1">{{ $review->comment }}</p>
+                            <p class="s-text10">user: {{ $review->user->name }}</p>
+                            @for($i=1; $i<=5; $i++)
+                                @if($i<=$review->rate)
+                                    <span class="fa fa-star checked"></span>
+                                @else
+                                    <span class="fa fa-star"></span>
+                                @endif
+                            @endfor
+                        @endforeach
                     </div>
                 </div>
             </div>

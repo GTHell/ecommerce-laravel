@@ -53,4 +53,8 @@ class Product extends Model
     public function carts () {
         return $this->belongsToMany('App\Models\Cart', 'carts_products', 'product_id');
     }
+
+    public function reviews () {
+        return $this->hasMany('App\Models\ProductReview', 'product_id');
+    }
 }

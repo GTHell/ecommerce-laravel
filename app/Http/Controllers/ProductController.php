@@ -19,11 +19,15 @@ class ProductController extends Controller
         $product = Product::find($id);
         $productCategory = $product->category;
         $productImages = $product->images;
+        $reviews = $product->reviews()->limit(3)->get();
+        $reviewCount = $product->reviews->count();
 
         return view('detail')
             ->with('product', $product)
             ->with('category', $productCategory)
-            ->with('images', $productImages);
+            ->with('images', $productImages)
+            ->with('reviews', $reviews)
+            ->with('reviewCount', $reviewCount);
     }
 
     public function getProduct($id)
