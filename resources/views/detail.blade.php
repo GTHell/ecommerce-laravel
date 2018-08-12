@@ -8,12 +8,12 @@
         </a>
 
         <a href="#" class="s-text16">
-            {{ $category }}
+            {{ $category->parent->name }}
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>
 
         <a href="#" class="s-text16">
-            T-Shirt
+            {{ $category->name }}
             <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
         </a>
 
