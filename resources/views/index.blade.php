@@ -84,7 +84,7 @@
 
                             <div class="block1-wrapbtn w-size2">
                                 <!-- Button -->
-                                <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                <a href="{{ route('product.show', $product->id) }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
                                     {{ $product->name }}
                                 </a>
                             </div>
@@ -140,7 +140,7 @@
 
                                                 <div class="block2-btn-addcart w-size1 trans-0-4">
                                                     <!-- Button -->
-                                                    <a href="#"
+                                                    <a href="{{ route('product.show', $product->id) }}"
                                                        class="flex-c-m mb-1 size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                                                         View
                                                     </a>
@@ -155,7 +155,7 @@
                                         </div>
 
                                         <div class="block2-txt p-t-20">
-                                            <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                            <a href="{{ route('product.show', $product->id) }}" class="block2-name dis-block s-text3 p-b-5">
                                                 {{ $product->name }}
                                             </a>
 
@@ -178,7 +178,7 @@
                                     <!-- Block2 -->
                                     <div class="block2">
                                         <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                            <img class="lazyload" data-src="{{ $product->images()->first()->url }}" alt="IMG-PRODUCT">
+                                            <img class="lazyload" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="{{ $product->images()->first()->url }}" alt="IMG-PRODUCT">
 
                                             <div class="block2-overlay trans-0-4">
                                                 <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -188,7 +188,7 @@
 
                                                 <div class="block2-btn-addcart w-size1 trans-0-4">
                                                     <!-- Button -->
-                                                    <a href="#"
+                                                    <a href="{{ route('product.show', $product->id) }}"
                                                        class="flex-c-m mb-1 size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                                                         View
                                                     </a>
@@ -201,7 +201,7 @@
                                         </div>
 
                                         <div class="block2-txt p-t-20">
-                                            <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                            <a href="{{ route('product.show', $product->id) }}" class="block2-name dis-block s-text3 p-b-5">
                                                 {{ $product->name }}
                                             </a>
 
@@ -230,7 +230,7 @@
                                     <!-- Block2 -->
                                     <div class="block2">
                                         <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                            <img class="lazyload" data-src="{{ $product->images()->first()->url }}" alt="IMG-PRODUCT">
+                                            <img class="lazyload" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="{{ $product->images()->first()->url }}" alt="IMG-PRODUCT">
 
                                             <div class="block2-overlay trans-0-4">
                                                 <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -240,7 +240,7 @@
 
                                                 <div class="block2-btn-addcart w-size1 trans-0-4">
                                                     <!-- Button -->
-                                                    <a href="#"
+                                                    <a href="{{ route('product.show', $product->id) }}"
                                                        class="flex-c-m mb-1 size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                                                         View
                                                     </a>
@@ -253,7 +253,7 @@
                                         </div>
 
                                         <div class="block2-txt p-t-20">
-                                            <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+                                            <a href="{{ route('product.show', $product->id) }}" class="block2-name dis-block s-text3 p-b-5">
                                                 {{ $product->name }}
                                             </a>
 
