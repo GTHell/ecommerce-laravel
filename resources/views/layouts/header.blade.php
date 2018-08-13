@@ -20,8 +20,8 @@
 <!-- header fixed -->
 <div class="wrap_header fixed-header2 trans-0-4">
     <!-- Logo -->
-    <a href="index.html" class="logo">
-        <img src="/images/icons/logo.png" alt="IMG-LOGO">
+    <a href="/" class="logo">
+        <img src="/images/logo.png" alt="IMG-LOGO">
     </a>
 
     <!-- Menu -->

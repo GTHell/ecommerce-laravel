@@ -3,7 +3,7 @@
 		<i class="fas fa-shopping-cart cart-icon"></i><span class="badge">{{ totalUnit }}</span>
 		<div class="shopping-cart-total">
 			<span class="lighter-text">Total:</span>
-			<span class="main-color-text">${{totalPrice/100}}</span>
+			<span class="main-color-text">${{(totalPrice /100).toFixed(2)}}</span>
 		</div>
 	</div>
 </template>

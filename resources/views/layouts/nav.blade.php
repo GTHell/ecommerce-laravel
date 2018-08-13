@@ -28,17 +28,17 @@
     <!-- Header desktop -->
     <div class="container-menu-header-v2 p-t-26">
         <div class="topbar2">
-            <div class="topbar-social">
-                <a href="#" class="topbar-social-item fas fa-facebook"></a>
-                <a href="#" class="topbar-social-item fas fa-instagram"></a>
-                <a href="#" class="topbar-social-item fas fa-pinterest-p"></a>
-                <a href="#" class="topbar-social-item fas fa-snapchat-ghost"></a>
-                <a href="#" class="topbar-social-item fas fa-youtube-play"></a>
-            </div>
+            {{--<div class="topbar-social">--}}
+                {{--<a href="#" class="topbar-social-item fas fa-facebook"></a>--}}
+                {{--<a href="#" class="topbar-social-item fas fa-instagram"></a>--}}
+                {{--<a href="#" class="topbar-social-item fas fa-pinterest-p"></a>--}}
+                {{--<a href="#" class="topbar-social-item fas fa-snapchat-ghost"></a>--}}
+                {{--<a href="#" class="topbar-social-item fas fa-youtube-play"></a>--}}
+            {{--</div>--}}
 
             <!-- Logo2 -->
-            <a href="index.html" class="logo2">
-                <img src="/images/icons/logo.png" alt="IMG-LOGO">
+            <a href="/" class="logo2">
+                <img src="/images/logo.png"  alt="IMG-LOGO">
             </a>
 
             <div class="topbar-child2">
@@ -107,8 +107,8 @@
     <!-- Header Mobile -->
     <div class="wrap_header_mobile">
         <!-- Logo moblie -->
-        <a href="index.html" class="logo-mobile">
-            <img src="/images/icons/logo.png" alt="IMG-LOGO">
+        <a href="/" class="logo-mobile">
+            <img src="/images/logo.png" alt="IMG-LOGO">
         </a>
 
         <!-- Button show menu -->
@@ -158,15 +158,15 @@
                     </div>
                 </li>
 
-                <li class="item-topbar-mobile p-l-10">
-                    <div class="topbar-social-mobile">
-                        <a href="#" class="topbar-social-item fas fa-facebook"></a>
-                        <a href="#" class="topbar-social-item fas fa-instagram"></a>
-                        <a href="#" class="topbar-social-item fas fa-pinterest-p"></a>
-                        <a href="#" class="topbar-social-item fas fa-snapchat-ghost"></a>
-                        <a href="#" class="topbar-social-item fas fa-youtube-play"></a>
-                    </div>
-                </li>
+                {{--<li class="item-topbar-mobile p-l-10">--}}
+                    {{--<div class="topbar-social-mobile">--}}
+                        {{--<a href="#" class="topbar-social-item fas fa-facebook"></a>--}}
+                        {{--<a href="#" class="topbar-social-item fas fa-instagram"></a>--}}
+                        {{--<a href="#" class="topbar-social-item fas fa-pinterest-p"></a>--}}
+                        {{--<a href="#" class="topbar-social-item fas fa-snapchat-ghost"></a>--}}
+                        {{--<a href="#" class="topbar-social-item fas fa-youtube-play"></a>--}}
+                    {{--</div>--}}
+                {{--</li>--}}
 
                 <li class="item-menu-mobile">
                     <a href="index.html">Home</a>

@@ -17,6 +17,6 @@ $factory->define(App\Models\ProductImage::class, function (Faker $faker) {
     return [
         'name' => $faker->unique()->words($nb=2, $asText=true),
 //        'url' => $faker->imageUrl($width = 1200, $height = 1600),
-        'url' => 'http://www.pngpix.com/wp-content/uploads/2016/10/PNGPIX-COM-T-Shirt-PNG-Transparent-Image-500x491.png'
+        'url' => '/images/product-img/product-'.$faker->numberBetween(1,9).'.jpg'
     ];
 });

@@ -4,7 +4,7 @@
 			<li class="clearfix">
 				<img style="width: 66px;" src="" alt="item1"/>
 				<span class="item-name">{{item.name}}</span>
-				<span class="item-price">${{(item.unit_price/100) * item.qty}}</span>
+				<span class="item-price">{{(item.unit_price * item.qty) | currency}}</span>
 				<span class="item-quantity">Quantity: {{item.qty}}</span>
 			</li>
 		</ul>
@@ -14,7 +14,12 @@
 <script>
   export default {
     name: "ItemList",
-	  props: ['item']
+	  props: ['item'],
+    filters: {
+      currency: function (val) {
+        return '$' + (val / 100).toFixed(2)
+      }
+    }
   }
 </script>
 

@@ -54532,7 +54532,7 @@ var render = function() {
       _c("span", { staticClass: "lighter-text" }, [_vm._v("Total:")]),
       _vm._v(" "),
       _c("span", { staticClass: "main-color-text" }, [
-        _vm._v("$" + _vm._s(_vm.totalPrice / 100))
+        _vm._v("$" + _vm._s((_vm.totalPrice / 100).toFixed(2)))
       ])
     ])
   ])
@@ -54660,7 +54660,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ItemList",
-  props: ['item']
+  props: ['item'],
+  filters: {
+    currency: function currency(val) {
+      return '$' + (val / 100).toFixed(2);
+    }
+  }
 });
 
 /***/ }),
@@ -54684,7 +54689,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("span", { staticClass: "item-price" }, [
-          _vm._v("$" + _vm._s((_vm.item.unit_price / 100) * _vm.item.qty))
+          _vm._v(_vm._s(_vm._f("currency")(_vm.item.unit_price * _vm.item.qty)))
         ]),
         _vm._v(" "),
         _c("span", { staticClass: "item-quantity" }, [

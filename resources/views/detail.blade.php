@@ -105,11 +105,11 @@
 
                             <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
                                 <!-- Button -->
-                                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                                    <add-cart pid="{{ $product->id }}">
+                                <add-cart pid="{{ $product->id }}">
+                                    <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                         Add to Cart
-                                    </add-cart>
-                                </button>
+                                    </button>
+                                </add-cart>
                             </div>
                         </div>
                     </div>
