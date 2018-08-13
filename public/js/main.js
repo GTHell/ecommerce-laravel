@@ -54197,7 +54197,7 @@ if (hadRuntime) {
 
 /* harmony default export */ __webpack_exports__["a"] = (function () {
   return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
-    baseURL: 'http://localhost:8000/api'
+    baseURL: 'http://localhost:8000/'
   });
 });
 

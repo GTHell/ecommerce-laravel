@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +18,10 @@ class ProductController extends Controller
         return view('dashboard.product');
     }
 
-    public function show($id)
+    public function getProduct($id)
     {
+        if (request()->ajax())
+            return $this->ajaxGetProduct($id);
         $product = Product::find($id);
         $productCategory = $product->category;
         $productImages = $product->images;
@@ -33,7 +36,7 @@ class ProductController extends Controller
             ->with('reviewCount', $reviewCount);
     }
 
-    public function getProduct($id)
+    public function ajaxGetProduct($id)
     {
 
         // Get product through Cart instead of Product table
@@ -41,10 +44,9 @@ class ProductController extends Controller
         // If it not exist then create and return the product back
 
         // Check if user authenticated or not
-        return response()->json(['message' => 'Cheking auth ...' , 'AUth' => Auth::check()], 200);
         if (Auth::check()) {
             // Find the product through cart related to User
-            return response()->json(['message' => 'Cheking auth ...' , 'AUth' => Auth::check()], 200);
+//            return response()->json(['auth' => Auth::check(), 'user_id' => Auth::user()->id], 200);
             $cart = User::find(Auth::user()->id)->cart;
 
             // find product exist or not
@@ -52,8 +54,8 @@ class ProductController extends Controller
 
             // if product not found then update the pivot
             if (!$product) {
-                $temp = Product::find($id);
-                $product = $cart->products()->attach($id, ['price' => $temp->unit_price, 'qty' => 1]);
+                $product = Product::find($id);
+                $cart->products()->attach($id, ['price' => $product->unit_price, 'qty' => 1]);
             }
             return response()->json($product, 200);
         }
