@@ -83,11 +83,11 @@
                         {{--</ul>--}}
                         {{--</li>--}}
                         <li class="sale-noti">
-                            <a href="{{ route('index') }}">Shop</a>
+                            <a href="{{ route('index') }}">Home</a>
                         </li>
 
                         <li>
-                            <a href="product.html">Shop</a>
+                            <a href="{{ route('product.index') }}">Shop</a>
                         </li>
 
                         <li>

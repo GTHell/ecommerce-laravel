@@ -22,6 +22,10 @@ class Product extends Model
         return $this->hasMany('App\Models\ProductImage', 'product_id');
     }
 
+    public function getFirstImage(){
+        return $this->images->first();
+    }
+
     public static function getTopReview($limit = 5)
     {
         // Query Builder

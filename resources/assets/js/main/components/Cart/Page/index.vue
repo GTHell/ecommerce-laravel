@@ -18,7 +18,7 @@
 							<tr v-for="item in carts" class="table-row">
 								<td class="column-1">
 									<div class="cart-img-product b-rad-4 o-f-hidden">
-										<img src="/images/item-10.jpg" alt="IMG-PRODUCT">
+										<img :src="item.images[0].url" alt="IMG-PRODUCT">
 									</div>
 								</td>
 								<td class="column-2">{{ item.name }}</td>
@@ -79,7 +79,7 @@
 					</span>
 					
 					<span class="m-text21 w-size20 w-full-sm">
-						$39.00
+						{{ totalPrice  | currency}}
 					</span>
 				</div>
 				
@@ -132,7 +132,7 @@
 					</span>
 					
 					<span class="m-text21 w-size20 w-full-sm">
-						$39.00
+						{{ totalPrice  | currency}}
 					</span>
 				</div>
 				
@@ -155,7 +155,12 @@
     computed: {
       ...mapGetters({
         carts: 'cart/carts'
-      })
+      }),
+      totalPrice: function () {
+        var value = _.sumBy(this.carts, (val) => (val.total_price))
+        
+        return value;
+      }
     },
     methods: {
       incrementToCart: function (id) {

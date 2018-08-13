@@ -53193,6 +53193,7 @@ __webpack_require__(60);
 Vue.component('shopping-cart', __webpack_require__(68));
 Vue.component('add-cart', __webpack_require__(84));
 Vue.component('cart-list', __webpack_require__(89));
+Vue.component('product-item', __webpack_require__(99));
 
 var app = new Vue({
   store: __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */],
@@ -54681,7 +54682,7 @@ var render = function() {
       _c("li", { staticClass: "clearfix" }, [
         _c("img", {
           staticStyle: { width: "66px" },
-          attrs: { src: "", alt: "item1" }
+          attrs: { src: _vm.item.images[0].url, alt: "item1" }
         }),
         _vm._v(" "),
         _c("span", { staticClass: "item-name" }, [
@@ -55023,7 +55024,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -55193,7 +55194,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
   name: "index",
   computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["mapGetters"])({
     carts: 'cart/carts'
-  })),
+  }), {
+    totalPrice: function totalPrice() {
+      var value = _.sumBy(this.carts, function (val) {
+        return val.total_price;
+      });
+
+      return value;
+    }
+  }),
   methods: {
     incrementToCart: function incrementToCart(id) {
       this.$store.dispatch('cart/incrementToCart', id);
@@ -55234,7 +55243,22 @@ var render = function() {
                     _vm._v(" "),
                     _vm._l(_vm.carts, function(item) {
                       return _c("tr", { staticClass: "table-row" }, [
-                        _vm._m(1, true),
+                        _c("td", { staticClass: "column-1" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "cart-img-product b-rad-4 o-f-hidden"
+                            },
+                            [
+                              _c("img", {
+                                attrs: {
+                                  src: item.images[0].url,
+                                  alt: "IMG-PRODUCT"
+                                }
+                              })
+                            ]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", { staticClass: "column-2" }, [
                           _vm._v(_vm._s(item.name))
@@ -55336,13 +55360,37 @@ var render = function() {
                 _vm._v("\n\t\t\t\tCart Totals\n\t\t\t")
               ]),
               _vm._v(" "),
-              _vm._m(2),
+              _c("div", { staticClass: "flex-w flex-sb-m p-b-12" }, [
+                _c("span", { staticClass: "s-text18 w-size19 w-full-sm" }, [
+                  _vm._v("\n\t\t\t\t\tSubtotal:\n\t\t\t\t")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "m-text21 w-size20 w-full-sm" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t" +
+                      _vm._s(_vm._f("currency")(_vm.totalPrice)) +
+                      "\n\t\t\t\t"
+                  )
+                ])
+              ]),
               _vm._v(" "),
-              _vm._m(3),
+              _vm._m(1),
               _vm._v(" "),
-              _vm._m(4),
+              _c("div", { staticClass: "flex-w flex-sb-m p-t-26 p-b-30" }, [
+                _c("span", { staticClass: "m-text22 w-size19 w-full-sm" }, [
+                  _vm._v("\n\t\t\t\t\tTotal:\n\t\t\t\t")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "m-text21 w-size20 w-full-sm" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t" +
+                      _vm._s(_vm._f("currency")(_vm.totalPrice)) +
+                      "\n\t\t\t\t"
+                  )
+                ])
+              ]),
               _vm._v(" "),
-              _vm._m(5)
+              _vm._m(2)
             ]
           )
         : _vm._e()
@@ -55364,30 +55412,6 @@ var staticRenderFns = [
       _c("th", { staticClass: "column-4 p-l-70" }, [_vm._v("Quantity")]),
       _vm._v(" "),
       _c("th", { staticClass: "column-5" }, [_vm._v("Total")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "column-1" }, [
-      _c("div", { staticClass: "cart-img-product b-rad-4 o-f-hidden" }, [
-        _c("img", { attrs: { src: "/images/item-10.jpg", alt: "IMG-PRODUCT" } })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex-w flex-sb-m p-b-12" }, [
-      _c("span", { staticClass: "s-text18 w-size19 w-full-sm" }, [
-        _vm._v("\n\t\t\t\t\tSubtotal:\n\t\t\t\t")
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "m-text21 w-size20 w-full-sm" }, [
-        _vm._v("\n\t\t\t\t\t$39.00\n\t\t\t\t")
-      ])
     ])
   },
   function() {
@@ -55465,20 +55489,6 @@ var staticRenderFns = [
             [_vm._v("\n\t\t\t\t\t\t\tUpdate Totals\n\t\t\t\t\t\t")]
           )
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex-w flex-sb-m p-t-26 p-b-30" }, [
-      _c("span", { staticClass: "m-text22 w-size19 w-full-sm" }, [
-        _vm._v("\n\t\t\t\t\tTotal:\n\t\t\t\t")
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "m-text21 w-size20 w-full-sm" }, [
-        _vm._v("\n\t\t\t\t\t$39.00\n\t\t\t\t")
       ])
     ])
   },
@@ -55648,6 +55658,2082 @@ if (false) {
     });
 })(jQuery);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(100)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(102)
+/* template */
+var __vue_template__ = __webpack_require__(103)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-973aa0a6"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/main/components/Product/index.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-973aa0a6", Component.options)
+  } else {
+    hotAPI.reload("data-v-973aa0a6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(101);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(16)("0616f29c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-973aa0a6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue", function() {
+     var newContent = require("!!../../../../../../node_modules/css-loader/index.js!../../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-973aa0a6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./index.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(14)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 102 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "index"
+});
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("section", { staticClass: "bgwhite p-t-55 p-b-65" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-6 col-md-4 col-lg-3 p-b-50" }, [
+              _c("div", { staticClass: "leftbar p-r-20 p-r-0-sm" }, [
+                _c("h4", { staticClass: "m-text14 p-b-7" }, [
+                  _vm._v("\n\t\t\t\t\t\t\tCategories\n\t\t\t\t\t\t")
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "p-b-54" }, [
+                  _c("li", { staticClass: "p-t-4" }, [
+                    _c(
+                      "a",
+                      { staticClass: "s-text13 active1", attrs: { href: "#" } },
+                      [_vm._v("\n\t\t\t\t\t\t\t\t\tAll\n\t\t\t\t\t\t\t\t")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "p-t-4" }, [
+                    _c(
+                      "a",
+                      { staticClass: "s-text13 active1", attrs: { href: "#" } },
+                      [_vm._v("\n\t\t\t\t\t\t\t\t\tadfsda\n\t\t\t\t\t\t\t\t")]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "search-product pos-relative bo4 of-hidden" },
+                  [
+                    _c("input", {
+                      staticClass: "s-text7 size6 p-l-23 p-r-50",
+                      attrs: {
+                        type: "text",
+                        name: "search-product",
+                        placeholder: "Search Products..."
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "flex-c-m size5 ab-r-m color2 color0-hov trans-0-4"
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fs-12 fa fa-search",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6 col-md-8 col-lg-9 p-b-50" }, [
+              _c("div", { staticClass: "flex-sb-m flex-w p-b-35" }, [
+                _c("div", { staticClass: "flex-w" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10"
+                    },
+                    [
+                      _c(
+                        "select",
+                        {
+                          staticClass: "selection-2",
+                          attrs: { name: "sorting" }
+                        },
+                        [
+                          _c("option", [_vm._v("Price")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("$0.00 - $50.00")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("$50.00 - $100.00")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("$100.00 - $150.00")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("$150.00 - $200.00")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("$200.00+")])
+                        ]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "s-text8 p-t-5 p-b-5" }, [
+                  _vm._v("\n\t\t\t\t\t\tShowing 1–12 of 16 results\n\t\t\t\t\t")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative block2-labelnew"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-02.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tHerschel supply co 25l\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$75.00\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-03.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tDenim jacket blue\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$92.50\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-05.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tCoach slim easton black\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$165.90\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative block2-labelsale"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-07.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tFrayed denim shorts\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-oldprice m-text7 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$29.50\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-newprice m-text8 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$15.90\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative block2-labelnew"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-01.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tHerschel supply co 25l\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$75.00\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-14.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tDenim jacket blue\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$92.50\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative block2-labelnew"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-06.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tHerschel supply co 25l\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$75.00\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-08.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tDenim jacket blue\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$92.50\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-10.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tCoach slim easton black\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$165.90\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative block2-labelsale"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-11.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tFrayed denim shorts\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-oldprice m-text7 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$29.50\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-newprice m-text8 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$15.90\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative block2-labelnew"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-12.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tHerschel supply co 25l\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$75.00\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 col-md-6 col-lg-4 p-b-50" },
+                  [
+                    _c("div", { staticClass: "block2" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "block2-img wrap-pic-w of-hidden pos-relative"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: "images/item-15.jpg",
+                              alt: "IMG-PRODUCT"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "block2-overlay trans-0-4" },
+                            [
+                              _c(
+                                "a",
+                                {
+                                  staticClass:
+                                    "block2-btn-addwishlist hov-pointer trans-0-4",
+                                  attrs: { href: "#" }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "icon-wishlist icon_heart_alt",
+                                    attrs: { "aria-hidden": "true" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("i", {
+                                    staticClass:
+                                      "icon-wishlist icon_heart dis-none",
+                                    attrs: { "aria-hidden": "true" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block2-btn-addcart w-size1 trans-0-4"
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\tAdd to Cart\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "block2-txt p-t-20" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "block2-name dis-block s-text3 p-b-5",
+                            attrs: { href: "product-detail.html" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t\tDenim jacket blue\n\t\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "block2-price m-text6 p-r-5" },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t\t\t$92.50\n\t\t\t\t\t\t\t\t"
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "pagination flex-m flex-w p-t-26" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "item-pagination flex-c-m trans-0-4 active-pagination",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v("1")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "item-pagination flex-c-m trans-0-4",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v("2")]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-973aa0a6", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

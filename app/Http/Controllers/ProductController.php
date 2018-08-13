@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,9 @@ class ProductController extends Controller
     //
     public function index()
     {
-        return view('dashboard.product');
+        $categories = Category::where('parent_id', '!=', null)->get();
+        return view('product')
+            ->with('categories', $categories);
     }
 
     public function getProduct($id)
@@ -54,13 +57,15 @@ class ProductController extends Controller
 
             // if product not found then update the pivot
             if (!$product) {
-                $product = Product::find($id);
+//                $product = Product::find($id);
+                $product = Product::with('images')->where('id',$id)->get();
                 $cart->products()->attach($id, ['price' => $product->unit_price, 'qty' => 1]);
             }
             return response()->json($product, 200);
         }
 
-        $product = Product::find($id);
+//        $product = Product::find($id);
+        $product = Product::with('images')->where('id',$id)->first();
         return response()->json($product, 200);
 
 

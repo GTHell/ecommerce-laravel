@@ -2,7 +2,7 @@
 	<div>
 		<ul class="shopping-cart-items">
 			<li class="clearfix">
-				<img style="width: 66px;" src="" alt="item1"/>
+				<img style="width: 66px;" :src="item.images[0].url" alt="item1"/>
 				<span class="item-name">{{item.name}}</span>
 				<span class="item-price">{{(item.unit_price * item.qty) | currency}}</span>
 				<span class="item-quantity">Quantity: {{item.qty}}</span>
