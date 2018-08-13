@@ -11,6 +11,7 @@ class IndexController extends Controller
     //
     public function index() {
         $randProd = Product::inRandomOrder()->limit(3)->get();
+        $randProd2 = Product::inRandomOrder()->limit(3)->get();
 
         // Top selling product
         $topSelling = Product::getTopSelling(8);
@@ -27,6 +28,7 @@ class IndexController extends Controller
 
         return view('index')
             ->with('randProd', $randProd)
+            ->with('randProd2', $randProd2)
             ->with('topReviewProduct', $topReview)
             ->with('topSellProduct', $topSelling)
             ->with('latestProduct', $latest);
