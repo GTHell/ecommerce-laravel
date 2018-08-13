@@ -1,7 +1,6 @@
 import CartAPI from '../../services/CartService'
 
 let cart = window.localStorage.getItem('cart')
-// let cartCount = window.localStorage.getItem('cartCount');
 
 // state
 const state = {
@@ -18,8 +17,8 @@ const getters = {
 const mutations = {
   SAVE_CART: (state) => {
     window.localStorage.setItem('cart', JSON.stringify(state.carts));
-    // console.log(JSON.parse(window.localStorage.getItem('cart')))
-    // window.localStorage.setItem('cartCount', state.cartCount);
+    // document.cookie = 'cart=' + (JSON.stringify(state.carts) || "") +
+    
   },
   ADD_TO_CART: (state, payload) => {
     
@@ -81,6 +80,7 @@ const mutations = {
 const actions = {
   async addToCart (context, payload) {
     const response = await CartAPI.getProduct(payload.id)
+    console.log(response.data)
   
     context.commit('ADD_TO_CART', response.data)
     // console.log('commited ADD_TO_CART')

@@ -53259,7 +53259,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 var cart = window.localStorage.getItem('cart');
-// let cartCount = window.localStorage.getItem('cartCount');
 
 // state
 var state = {
@@ -53276,8 +53275,7 @@ var state = {
 };var mutations = {
   SAVE_CART: function SAVE_CART(state) {
     window.localStorage.setItem('cart', JSON.stringify(state.carts));
-    // console.log(JSON.parse(window.localStorage.getItem('cart')))
-    // window.localStorage.setItem('cartCount', state.cartCount);
+    // document.cookie = 'cart=' + (JSON.stringify(state.carts) || "") +
   },
   ADD_TO_CART: function ADD_TO_CART(state, payload) {
 
@@ -53349,13 +53347,14 @@ var state = {
             case 2:
               response = _context.sent;
 
+              console.log(response.data);
 
               context.commit('ADD_TO_CART', response.data);
               // console.log('commited ADD_TO_CART')
               context.commit('SAVE_CART', state.carts);
               // console.log('commited SAVE_CART')
 
-            case 5:
+            case 6:
             case 'end':
               return _context.stop();
           }
