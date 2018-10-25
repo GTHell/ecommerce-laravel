@@ -14,7 +14,7 @@
 					<div v-else>
 						<cart-header></cart-header>
 						<ul>
-							<cart-items v-for="cart in carts" :item="cart"></cart-items>
+							<cart-items v-for="cart in carts" :key="cart.id" :item="cart"></cart-items>
 						</ul>
 						<a href="/carts" class="btn btn-primary btn-block">Checkout</a>
 					</div>

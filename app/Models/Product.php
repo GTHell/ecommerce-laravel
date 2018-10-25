@@ -17,6 +17,10 @@ class Product extends Model
         return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
+    public function supplier () {
+        return $this->belongsTo('App\Models\Supplier', 'supplier_id');
+    }
+
     public function images()
     {
         return $this->hasMany('App\Models\ProductImage', 'product_id');
