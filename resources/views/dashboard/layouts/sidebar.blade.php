@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/products*') ? 'active' : '' }}" href="{{ route('dashboard.products') }}">
+                <a class="nav-link {{ Request::is('dashboard/products*') ? 'active' : '' }}" href="{{ route('dashboard.products.index') }}">
                     <span data-feather="shopping-cart"></span>
                     Products
                 </a>
